@@ -50,7 +50,7 @@ public override RelicRarity Rarity => RelicRarity.Common;
             Cancelable = false,
             RequireManualConfirmation = true
         };
-        Inky canonicalEnchantment = new Inky();
+        EnchantmentModel canonicalEnchantment = ModelDb.Enchantment<Inky>();
         foreach (CardModel card in await CardSelectCmd.FromDeckForEnchantment(voidVial.Owner, canonicalEnchantment, 4, prefs))
         {
             CardCmd.Enchant<Inky>(card, 1M);
