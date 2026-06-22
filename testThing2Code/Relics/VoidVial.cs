@@ -16,7 +16,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(IroncladRelicPool))]
-public class voidVial() : CustomRelicModel
+public class VoidVial() : CustomRelicModel
 {
     public override List<(string, string)> Localization => new PowerLoc(
         "Void Vial",
@@ -44,7 +44,7 @@ public override RelicRarity Rarity => RelicRarity.Common;
     
     public override async Task AfterObtained()
     {
-        voidVial voidVial = this;
+        VoidVial voidVial = this;
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, 4)
         {
             Cancelable = false,
