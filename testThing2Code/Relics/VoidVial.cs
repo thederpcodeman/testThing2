@@ -22,8 +22,7 @@ public class voidVial() : CustomRelicModel
         "Enchant up to 4 cards with Inky",
         "Enchant up to 4 cards with Inky");
 
-public override RelicRarity Rarity =>
-        RelicRarity.Starter;
+public override RelicRarity Rarity => RelicRarity.Common;
 
     public override bool HasUponPickupEffect => true;
     
