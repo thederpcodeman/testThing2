@@ -19,7 +19,7 @@ namespace testThing2.testThing2Code.Relics;
 public class VoidVial() : CustomRelicModel
 {
     public override List<(string, string)> Localization => new PowerLoc(
-        "Void Vial",
+        PackedIconPath,
         "Enchant up to 4 cards with Inky",
         "Enchant up to 4 cards with Inky");
 
