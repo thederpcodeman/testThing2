@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Relics;
+﻿using System.Collections;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -31,6 +32,15 @@ public override RelicRarity Rarity => RelicRarity.Common;
         get => HoverTipFactory.FromEnchantment<Inky>();
     }
     
+    protected override IEnumerable<DynamicVar> CanonicalVars
+    {
+        get
+        {
+            List<DynamicVar> vars = [ (DynamicVar) new CardsVar(4)];
+                    return (IEnumerable<DynamicVar>) vars;
+        }
+        
+    }
     
     public override async Task AfterObtained()
     {
