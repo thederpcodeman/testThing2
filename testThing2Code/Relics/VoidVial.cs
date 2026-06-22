@@ -31,10 +31,11 @@ public override RelicRarity Rarity => RelicRarity.Common;
         get => HoverTipFactory.FromEnchantment<Inky>();
     }
     
+    
     public override async Task AfterObtained()
     {
         voidVial voidVial = this;
-        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, voidVial.DynamicVars.Cards.IntValue)
+        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, 4)
         {
             Cancelable = false,
             RequireManualConfirmation = true
