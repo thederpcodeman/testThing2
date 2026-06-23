@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -31,28 +32,26 @@ public class TwinDice() : testThing2Relic
         RelicRarity.Common;
     
 
-    public override async Task BeforeSideTurnStart(
-        PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         Random rand = new Random();
         int GoldRoll = rand.Next(1, 7);
         Flash();
         int CursedRoll = rand.Next(1, 7);
         Flash();
+        CursedRoll = 0;
+        GoldRoll = 1;
         MainFile.Logger.Info("TwinDice Rolled: " + GoldRoll + " | " + CursedRoll);
 
         // Curse 1: Void
         if (CursedRoll == 1)
         {
-            await CardPileCmd.Add(new Void(), PileType.Discard, CardPilePosition.Random, this);
+            await CardPileCmd.Add(ModelDb.Card<Void>(), PileType.Discard, CardPilePosition.Random, this);
         } 
         // Curse 2: Dazed
         else if (CursedRoll == 2)
         {
-            await CardPileCmd.Add(new Dazed(), PileType.Discard, CardPilePosition.Random, this);
+            await CardPileCmd.Add(ModelDb.Card<Dazed>(), PileType.Discard, CardPilePosition.Random, this);
         }
         // Curse 3: Weak
         else if (CursedRoll == 3)
@@ -85,16 +84,18 @@ public class TwinDice() : testThing2Relic
         }
         else if (GoldRoll == 4)
         {
-            foreach (Creature c in  combatState.Enemies)
+            var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 2);
+            var selected = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this));
+            foreach (var card in selected)
             {
-                await PowerCmd.Apply<WeakPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
-                await PowerCmd.Apply<VulnerablePower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+                CardCmd.Upgrade(card);
             }
+            
         }
         else if (GoldRoll == 5)
-        {
-            IReadOnlyList<CardPileAddResult> combat = await CardPileCmd.AddGeneratedCardsToCombat(ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), PileType.Hand, Owner);
-            
+        { 
+            var card = ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint);
+            await CardPileCmd.AddGeneratedCardsToCombat(card, PileType.Hand, Owner);
         }
         else if (GoldRoll == 6)
         {
