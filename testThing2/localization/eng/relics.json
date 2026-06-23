@@ -2,5 +2,6 @@
   "TESTTHING2-VOID_VIAL.flavor": "Enchant up to 4 cards with Inky",
   "TESTTHING2-TWIN_DICE.flavor": "Roll the Golden Die for a boon and the Cursed Die for a bane each turn",
   "TESTTHING2-EMPTY_GEM.flavor": "Enchant up to 4 cards with Inky",
-  "TESTTHING2-CORRUPTED_LANCE.flavor": "Enchant up to 4 cards with Inky"
+  "TESTTHING2-CORRUPTED_LANCE.flavor": "Enchant all future attacks with corrupted",
+  "TESTTHING2-BOTTOMLESS_TANKARD.flavor": "When you would die, revive with half your max hp, and add a decay to your deck"
 }
