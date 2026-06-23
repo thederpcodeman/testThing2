@@ -16,11 +16,11 @@ namespace testThing2.testThing2Code.Relics;
 public class VoidVial() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
-        "Void Vial",
+        "VoidVial",
         "Enchant up to 4 cards with Inky",
         "Enchant up to 4 cards with Inky");
 
-public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Common;
 
     public override bool HasUponPickupEffect => true;
     
@@ -41,14 +41,13 @@ public override RelicRarity Rarity => RelicRarity.Common;
     
     public override async Task AfterObtained()
     {
-        VoidVial voidVial = this;
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, 4)
         {
             Cancelable = false,
             RequireManualConfirmation = true
         };
         EnchantmentModel canonicalEnchantment = ModelDb.Enchantment<Inky>();
-        foreach (CardModel card in await CardSelectCmd.FromDeckForEnchantment(voidVial.Owner, canonicalEnchantment, 4, prefs))
+        foreach (CardModel card in await CardSelectCmd.FromDeckForEnchantment(Owner, canonicalEnchantment, 4, prefs))
         {
             CardCmd.Enchant<Inky>(card, 1M);
         }
