@@ -29,7 +29,7 @@ public class EmptyGem() : testThing2Relic
         if (!(room is CombatRoom))
             return;
         Flash();
-        List<CardModel> list = PileType.Draw.GetPile(Owner).Cards.ToList<CardModel>().StableShuffle<CardModel>(Owner.RunState.Rng.CombatCardSelection).Take<CardModel>(PileType.Draw.GetPile(Owner).Cards.ToList<CardModel>().Count).ToList<CardModel>();
+        List<CardModel> list = PileType.Draw.GetPile(Owner).Cards.ToList<CardModel>().StableShuffle<CardModel>(Owner.RunState.Rng.CombatCardSelection).Take<CardModel>(PileType.Draw.GetPile(Owner).Cards.ToList<CardModel>().Count / 2).ToList<CardModel>();
         foreach (CardModel cardModel in list)
         {
             CardCmd.ApplyKeyword(cardModel, CardKeyword.Ethereal);

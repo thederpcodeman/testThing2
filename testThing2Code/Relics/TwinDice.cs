@@ -8,6 +8,8 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -55,17 +57,17 @@ public class TwinDice() : testThing2Relic
         // Curse 3: Weak
         else if (CursedRoll == 3)
         {
-            await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            await PowerCmd.Apply<WeakPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
         }
         // Curse 4: Vulnerable
         else if (CursedRoll == 4)
         {
-            await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            await PowerCmd.Apply<VulnerablePower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
         }
         // Curse 5: Frail
         else if (CursedRoll == 5)
         {
-            await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            await PowerCmd.Apply<FrailPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
         }
 
         if (GoldRoll == 1)
@@ -75,15 +77,29 @@ public class TwinDice() : testThing2Relic
         }
         else if (GoldRoll == 2)
         {
-            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
         }
         else if (GoldRoll == 3)
         {
-            await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            await PowerCmd.Apply<DexterityPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
         }
         else if (GoldRoll == 4)
         {
-            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+            foreach (Creature c in  combatState.Enemies)
+            {
+                await PowerCmd.Apply<WeakPower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+                await PowerCmd.Apply<VulnerablePower>(choiceContext, this.Owner.Creature, 1.0m, this.Owner.Creature, null, false);
+            }
+        }
+        else if (GoldRoll == 5)
+        {
+            IReadOnlyList<CardPileAddResult> combat = await CardPileCmd.AddGeneratedCardsToCombat(ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), PileType.Hand, Owner);
+            
+        }
+        else if (GoldRoll == 6)
+        {
+            await CardPileCmd.Draw(choiceContext, 1, Owner);
+            await PlayerCmd.GainEnergy(1, Owner);
         }
         
     }
