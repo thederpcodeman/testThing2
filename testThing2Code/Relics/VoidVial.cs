@@ -2,12 +2,9 @@
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Enchantments;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Models;
@@ -16,7 +13,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(IroncladRelicPool))]
-public class VoidVial() : CustomRelicModel
+public class VoidVial() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
         "Void Vial",
