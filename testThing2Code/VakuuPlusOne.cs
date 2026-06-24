@@ -11,7 +11,7 @@ using testThing2.testThing2Code.Relics;
 namespace testThing2.testThing2Code;
 
 
-public class VakuuPlusZero : CustomAncientModel {
+public class VakuuPlusOne : CustomAncientModel {
     protected override OptionPools MakeOptionPools => new OptionPools(
         [
             AncientOption<BloodSoakedRose>(),
