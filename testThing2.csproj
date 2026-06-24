@@ -55,6 +55,7 @@
     <ItemGroup>
         <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props"/>
         <None Include=".gitignore"/>
+        <None Include="scenes\events\background_scenes\testthingy-vakuuplusone.tscn" />
         <None Include="testThing2.json"/>
         <None Include="project.godot"/>
         <None Include="testThing2/**"/>
