@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -38,20 +39,19 @@ public class TwinDice() : testThing2Relic
         int GoldRoll = rand.Next(1, 7);
         Flash();
         int CursedRoll = rand.Next(1, 7);
-        Flash();
-        CursedRoll = 0;
-        GoldRoll = 1;
+        Flash(); 
+        GoldRoll = 4;
         MainFile.Logger.Info("TwinDice Rolled: " + GoldRoll + " | " + CursedRoll);
 
         // Curse 1: Void
         if (CursedRoll == 1)
         {
-            await CardPileCmd.Add(ModelDb.Card<Void>(), PileType.Discard, CardPilePosition.Random, this);
+            await CardPileCmd.AddToCombatAndPreview<Void>(Owner.Creature, PileType.Discard, 1, Owner);
         } 
         // Curse 2: Dazed
         else if (CursedRoll == 2)
         {
-            await CardPileCmd.Add(ModelDb.Card<Dazed>(), PileType.Discard, CardPilePosition.Random, this);
+            await CardPileCmd.AddToCombatAndPreview<Dazed>(Owner.Creature, PileType.Discard, 1, Owner);
         }
         // Curse 3: Weak
         else if (CursedRoll == 3)
@@ -85,7 +85,7 @@ public class TwinDice() : testThing2Relic
         else if (GoldRoll == 4)
         {
             var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 2);
-            var selected = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this));
+            var selected = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c.IsUpgradable, this));
             foreach (var card in selected)
             {
                 CardCmd.Upgrade(card);
@@ -94,8 +94,9 @@ public class TwinDice() : testThing2Relic
         }
         else if (GoldRoll == 5)
         { 
-            var card = ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint);
-            await CardPileCmd.AddGeneratedCardsToCombat(card, PileType.Hand, Owner);
+            List<CardModel> list = CardFactory.GetDistinctForCombat(Owner, ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), 1, Owner.RunState.Rng.CombatCardGeneration).ToList<CardModel>();
+            await CardPileCmd.AddGeneratedCardsToCombat((IEnumerable<CardModel>) list, PileType.Hand, Owner);
+            
         }
         else if (GoldRoll == 6)
         {
