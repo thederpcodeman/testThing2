@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pluoyq0c1u65"
-path="res://.godot/imported/vakuu_plus_one_placeholder.png-e2422a4b4c493ac7f3979e2e17c99b1d.ctex"
+path="res://.godot/imported/vakuu_plus_one_placeholder.png-f79a44a8d4fe6253c1b34df8c9b3170d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/vakuu_plus_one_placeholder.png"
-dest_files=["res://.godot/imported/vakuu_plus_one_placeholder.png-e2422a4b4c493ac7f3979e2e17c99b1d.ctex"]
+source_file="res://testThing2/images/ui/run_history/vakuu_plus_one_placeholder.png"
+dest_files=["res://.godot/imported/vakuu_plus_one_placeholder.png-f79a44a8d4fe6253c1b34df8c9b3170d.ctex"]
 
 [params]
 

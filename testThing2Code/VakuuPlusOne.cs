@@ -37,8 +37,6 @@ public class VakuuPlusOne : CustomAncientModel {
         ]
     );
 
-    public override string? CustomScenePath { get; }
-
     public override bool IsValidForAct(ActModel act)
     {
         return act.ActNumber() == 3;
