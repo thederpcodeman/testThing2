@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn6ngviub0q7u"
-path.s3tc="res://.godot/imported/testthingy2-vakuu_plus_one_outline.png-4d24c4f2d857d5fff5e857649c7d90ed.s3tc.ctex"
+path.s3tc="res://.godot/imported/testthingy2-vakuu_plus_one_outline.png-359c0662e3e4b71be900293c30f47516.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://images/ui/run_history/testthingy2-vakuu_plus_one_outline.png"
-dest_files=["res://.godot/imported/testthingy2-vakuu_plus_one_outline.png-4d24c4f2d857d5fff5e857649c7d90ed.s3tc.ctex"]
+source_file="res://testThing2/images/ui/run_history/testthingy2-vakuu_plus_one_outline.png"
+dest_files=["res://.godot/imported/testthingy2-vakuu_plus_one_outline.png-359c0662e3e4b71be900293c30f47516.s3tc.ctex"]
 
 [params]
 

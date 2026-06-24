@@ -40,11 +40,6 @@ public class VakuuPlusOne : CustomAncientModel {
     {
         return act.ActNumber() == 3;
     }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return true;
-    }
     
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
@@ -70,6 +65,7 @@ public class VakuuPlusOne : CustomAncientModel {
         }
     }
 
+    public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
     public override string? CustomMapIconPath => "testThing2/images/packed/map/ancient/ancient_node_testthingy2-vakuu_plus_one.png";
 
     public override string? CustomMapIconOutlinePath => "testThing2/images/packed/map/ancient/ancient_node_testthingy2-vakuu_plus_one_outline.png";
