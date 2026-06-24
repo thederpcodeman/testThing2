@@ -51,7 +51,7 @@ public class VoidVial() : testThing2Relic
         CardSelectorPrefs setup = new CardSelectorPrefs(new LocString("relics", "TESTTHING2-VOID_VIAL.selectionScreenPrompt"), 4);
         foreach (CardModel card in await CardSelectCmd.FromDeckGeneric(Owner, prefs, c => c.Enchantment == null && c.Type == CardType.Attack))
         {
-            CardCmd.Enchant<Inky>(card, 3M);
+            CardCmd.Enchant<Inky>(card, 1M);
         }
     }
     
