@@ -10,6 +10,7 @@ using testThing2.testThing2Code.Relics;
 namespace testThing2.testThing2Code;
 
 public class VakuuPlusOne : Vakuu {
+    public bool IsValidForAct(ActModel act) => act.Index == 2;
 
     public override IEnumerable<EventOption> AllPossibleOptions
     {
