@@ -11,11 +11,6 @@ namespace testThing2.testThing2Code;
 
 public class VakuuPlusOne : Vakuu {
     public bool IsValidForAct(ActModel act) => act.Index == 2;
-
-    public override IEnumerable<EventOption> AllPossibleOptions
-    {
-        get => this.Pool1.Concat<EventOption>(this.Pool2).Concat<EventOption>(this.Pool3);
-    }
     
     private IEnumerable<EventOption> Pool1
     {
@@ -82,12 +77,14 @@ public class VakuuPlusOne : Vakuu {
         list3.UnstableShuffle<EventOption>(this.Rng);
         list4.UnstableShuffle<EventOption>(this.Rng);
         // ISSUE: object of a compiler-generated type is created
-        return (IReadOnlyList<EventOption>) new List<EventOption>(new EventOption[4]
+        List<EventOption> listFinal = new List<EventOption>(new EventOption[4]
         {
             list1[0],
             list2[0],
             list3[0],
             list4[0]
         });
+        listFinal.UnstableShuffle<EventOption>(this.Rng);
+        return (IReadOnlyList<EventOption>)new List<EventOption>(listFinal);
     }
 }
