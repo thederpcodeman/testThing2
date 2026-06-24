@@ -10,7 +10,6 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code;
 
-
 public class VakuuPlusOne : CustomAncientModel {
     protected override OptionPools MakeOptionPools => new OptionPools(
         [
@@ -70,5 +69,13 @@ public class VakuuPlusOne : CustomAncientModel {
             });
         }
     }
+
+    public override string? CustomMapIconPath => "testThing2/images/packed/map/ancient/ancient_node_testthingy2-vakuu_plus_one.png";
+
+    public override string? CustomMapIconOutlinePath => "testThing2/images/packed/map/ancient/ancient_node_testthingy2-vakuu_plus_one_outline.png";
+
+    public override string? CustomRunHistoryIconPath => "testThing2/images/ui/run_history/testhingy2-vakuu_plus_one.png";
+
+    public override string? CustomRunHistoryIconOutlinePath => "testThing2/images/ui/run_history/testthingy2-vakuu_plus_one_outline.png";
     
 }

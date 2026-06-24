@@ -45,11 +45,9 @@
         <Compile Remove="testThing2/**"/>
         <Compile Remove="materials/**"/>
         <Compile Remove="shaders/**"/>
-        <Compile Remove="images/**"/>
         <EmbeddedResource Remove="testThing2/**"/>
         <EmbeddedResource Remove="materials/**"/>
         <EmbeddedResource Remove="shaders/**"/>
-        <EmbeddedResource Remove="images/**"/>
     </ItemGroup>
 
     <ItemGroup>
