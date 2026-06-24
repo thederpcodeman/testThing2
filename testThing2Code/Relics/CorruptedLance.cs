@@ -13,7 +13,7 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(IroncladRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CorruptedLance() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
@@ -22,7 +22,7 @@ public class CorruptedLance() : testThing2Relic
         "Whenever you add an attack to your deck, enchant it with corrupted");
     
     public override RelicRarity Rarity =>
-        RelicRarity.Common; 
+        RelicRarity.Ancient; 
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {

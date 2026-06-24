@@ -21,7 +21,7 @@ using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(IroncladRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class TwinDice() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
@@ -30,7 +30,7 @@ public class TwinDice() : testThing2Relic
         "Roll the Golden Die for a boon and the Cursed Die for a bane each turn.");
     
     public override RelicRarity Rarity =>
-        RelicRarity.Common;
+        RelicRarity.Ancient; 
     
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

@@ -12,7 +12,7 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(IroncladRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class EmptyGem() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
@@ -21,7 +21,7 @@ public class EmptyGem() : testThing2Relic
         "At the start of each combat, half of the cards in your deck become ethereal");
     
     public override RelicRarity Rarity =>
-        RelicRarity.Common;
+        RelicRarity.Ancient; 
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {

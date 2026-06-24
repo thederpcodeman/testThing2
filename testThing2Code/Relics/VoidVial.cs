@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(IroncladRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class VoidVial() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
@@ -22,7 +22,7 @@ public class VoidVial() : testThing2Relic
         "Enchant up to 4 cards with Inky",
         "Enchant up to 4 cards with Inky");
 
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Ancient; 
 
     public override bool HasUponPickupEffect => true;
     

@@ -10,7 +10,7 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(IroncladRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class BottomlessTankard() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
@@ -19,7 +19,7 @@ public class BottomlessTankard() : testThing2Relic
         "When you would die, revive with half your max hp, and add a decay to your deck");
     
     public override RelicRarity Rarity =>
-        RelicRarity.Common; 
+        RelicRarity.Ancient; 
 
     public override bool ShouldDieLate(Creature creature)
     {
