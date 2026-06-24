@@ -7,6 +7,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 
@@ -46,10 +48,10 @@ public class VoidVial() : testThing2Relic
             Cancelable = false,
             RequireManualConfirmation = true
         };
-        EnchantmentModel canonicalEnchantment = ModelDb.Enchantment<Inky>();
-        foreach (CardModel card in await CardSelectCmd.FromDeckForEnchantment(Owner, canonicalEnchantment, 4, prefs))
+        CardSelectorPrefs setup = new CardSelectorPrefs(new LocString("relics", "TESTTHING2-VOID_VIAL.selectionScreenPrompt"), 4);
+        foreach (CardModel card in await CardSelectCmd.FromDeckGeneric(Owner, prefs, c => c.Enchantment == null && c.Type == CardType.Attack))
         {
-            CardCmd.Enchant<Inky>(card, 1M);
+            CardCmd.Enchant<Inky>(card, 3M);
         }
     }
     
