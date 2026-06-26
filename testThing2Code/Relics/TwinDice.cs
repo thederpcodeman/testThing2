@@ -56,22 +56,17 @@ public class TwinDice() : testThing2Relic
         // Curse 3: Weak
         else if (cursedRoll == 3)
         {
-            await PowerCmd.ModifyAmount(choiceContext, ModelDb.Power<WeakPower>(), 1m, null, null, false);
+            await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, null, false);
         }
         // Curse 4: Vulnerable
         else if (cursedRoll == 4)
         {
-            await PowerCmd.ModifyAmount(choiceContext, ModelDb.Power<VulnerablePower>(), 1m, null, null, false);
+            await PowerCmd.Apply<VulnerablePower>(choiceContext, Owner.Creature, 1m, Owner.Creature, null, false);
         }
         // Curse 5: Frail
         else if (cursedRoll == 5)
         {
-            await PowerCmd.ModifyAmount(choiceContext, ModelDb.Power<FrailPower>(), 1m, null, null, false);
-        }
-        else if (cursedRoll == 6)
-        {
-            DamageVar dynamicVar = (DamageVar) this.DynamicVars["SelfDamage"];
-            await CreatureCmd.Damage(choiceContext, Owner.Creature, 1m, dynamicVar.Props, Owner.Creature, null);
+            await PowerCmd.Apply<FrailPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, null, false);
         }
 
         if (goldRoll == 1)

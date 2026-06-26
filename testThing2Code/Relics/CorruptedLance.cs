@@ -72,7 +72,7 @@ public class CorruptedLance() : testThing2Relic
     public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
     {
         newCard = (CardModel) null;
-        if (card.Owner != this.Owner || !ModelDb.Enchantment<Nimble>().CanEnchant(card))
+        if (card.Owner != this.Owner || !ModelDb.Enchantment<Corrupted>().CanEnchant(card))
             return false;
         newCard = this.EnchantCard(card);
         return true;
@@ -90,6 +90,7 @@ public class CorruptedLance() : testThing2Relic
             }
         }
     }
+    
     private CardModel EnchantCard(CardModel card)
     {
         CardModel card1 = this.Owner.RunState.CloneCard(card);
