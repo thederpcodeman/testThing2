@@ -11,6 +11,10 @@ using testThing2.testThing2Code.Relics;
 namespace testThing2.testThing2Code;
 
 public class VakuuPlusOne : CustomAncientModel {
+    public override IEnumerable<EventOption> AllPossibleOptions
+    {
+        get => this.TotalPool();
+    }
     protected override OptionPools MakeOptionPools => new OptionPools(
         [
             AncientOption<BloodSoakedRose>(),
@@ -35,6 +39,27 @@ public class VakuuPlusOne : CustomAncientModel {
             //more relic options
         ]
     );
+
+    protected IEnumerable<EventOption> TotalPool()
+    {
+        List<EventOption> pool = new List<EventOption>();
+        pool.Add(RelicOption<BloodSoakedRose>());
+        pool.Add(RelicOption<WhisperingEarring>());
+        pool.Add(RelicOption<Fiddle>());
+        pool.Add(RelicOption<TwinDice>());
+        pool.Add(RelicOption<PreservedFog>());
+        pool.Add(RelicOption<SereTalon>());
+        pool.Add(RelicOption<DistinguishedCape>());
+        pool.Add(RelicOption<CorruptedLance>());
+        pool.Add(RelicOption<EmptyGem>());
+        pool.Add(RelicOption<ChoicesParadox>());
+        pool.Add(RelicOption<MusicBox>());
+        pool.Add(RelicOption<LordsParasol>());
+        pool.Add(RelicOption<JeweledMask>());
+        pool.Add(RelicOption<VoidVial>());
+        pool.Add(RelicOption<BottomlessTankard>());
+        return pool;
+    }
 
     public override bool IsValidForAct(ActModel act)
     {
