@@ -3,7 +3,9 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
 using testThing2.testThing2Code.Relics;
@@ -62,6 +64,25 @@ public class VakuuPlusOne : CustomAncientModel {
         pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
+        pool.Add(RelicOption<CallingBell>());           // From Darv
+        pool.Add(RelicOption<SneckoEye>());             // From Darv
+        //TODO add stone humidifier?
+        //TODO add Shatter
+        //TODO add Reject
+        //TODO add Trade
+        pool.Add(RelicOption<BingBong>());              // From Events
+        pool.Add(RelicOption<Circlet>());               // From Events
+        pool.Add(RelicOption<FragrantMushroom>());      // From Events
+        pool.Add(RelicOption<RoyalPoison>());           // From Events
+        pool.Add(RelicOption<FakeSneckoEye>());         // From Events
+        pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
+        pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
+        pool.Add(RelicOption<StoneCalendar>());         // From Rare Relic Pool
+        //TODO add Evil Stone Calendar
+        pool.Add(RelicOption<PaelsTooth>());            // From Pael
+        //TODO add Glup Shitto
+        pool.Add(RelicOption<NeowsBones>());            // From Neow
+        //TODO add 67
         
         
         return pool;
@@ -69,18 +90,18 @@ public class VakuuPlusOne : CustomAncientModel {
 
     public override bool IsValidForAct(ActModel act)
     {
-        return act.ActNumber() == 3;
+        return true;
     }
     
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
-        List<EventOption> Offerings = new List<EventOption>();
+        List<EventOption> offerings = new List<EventOption>();
         List<EventOption> options = this.TotalPool().ToList<EventOption>();
         options.UnstableShuffle<EventOption>(this.Rng);
-        Offerings.Add(options[0]);
-        Offerings.Add(options[1]);
-        Offerings.Add(options[2]);
-        return Offerings;
+        offerings.Add(options[0]);
+        offerings.Add(options[1]);
+        offerings.Add(options[2]);
+        return offerings;
     }
 
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
@@ -91,5 +112,7 @@ public class VakuuPlusOne : CustomAncientModel {
     public override string? CustomRunHistoryIconPath => "testThing2/images/ui/run_history/testhingy2-vakuu_plus_one.png";
 
     public override string? CustomRunHistoryIconOutlinePath => "testThing2/images/ui/run_history/testthingy2-vakuu_plus_one_outline.png";
+    
+    
     
 }
