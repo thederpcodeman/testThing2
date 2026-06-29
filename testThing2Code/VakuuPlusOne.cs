@@ -43,21 +43,27 @@ public class VakuuPlusOne : CustomAncientModel {
     protected IEnumerable<EventOption> TotalPool()
     {
         List<EventOption> pool = new List<EventOption>();
-        pool.Add(RelicOption<BloodSoakedRose>());
-        pool.Add(RelicOption<WhisperingEarring>());
-        pool.Add(RelicOption<Fiddle>());
-        pool.Add(RelicOption<TwinDice>());
-        pool.Add(RelicOption<PreservedFog>());
-        pool.Add(RelicOption<SereTalon>());
-        pool.Add(RelicOption<DistinguishedCape>());
-        pool.Add(RelicOption<CorruptedLance>());
-        pool.Add(RelicOption<EmptyGem>());
-        pool.Add(RelicOption<ChoicesParadox>());
-        pool.Add(RelicOption<MusicBox>());
-        pool.Add(RelicOption<LordsParasol>());
-        pool.Add(RelicOption<JeweledMask>());
-        pool.Add(RelicOption<VoidVial>());
-        pool.Add(RelicOption<BottomlessTankard>());
+        pool.Add(RelicOption<BloodSoakedRose>());       // From Vakuu
+        pool.Add(RelicOption<WhisperingEarring>());     // From Vakuu
+        pool.Add(RelicOption<Fiddle>());                // From Vakuu
+        pool.Add(RelicOption<PreservedFog>());          // From Vakuu
+        pool.Add(RelicOption<SereTalon>());             // From Vakuu
+        pool.Add(RelicOption<DistinguishedCape>());     // From Vakuu
+        pool.Add(RelicOption<ChoicesParadox>());        // From Vakuu
+        pool.Add(RelicOption<MusicBox>());              // From Vakuu
+        pool.Add(RelicOption<LordsParasol>());          // From Vakuu
+        pool.Add(RelicOption<JeweledMask>());           // From Vakuu
+        pool.Add(RelicOption<VoidVial>());              // From Vakuu Plus
+        pool.Add(RelicOption<BottomlessTankard>());     // From Vakuu Plus
+        pool.Add(RelicOption<TwinDice>());              // From Vakuu Plus
+        pool.Add(RelicOption<EmptyGem>());              // From Vakuu Plus
+        pool.Add(RelicOption<CorruptedLance>());        // From Vakuu Plus
+        pool.Add(RelicOption<ToastyMittens>());         // From Tezcatara
+        pool.Add(RelicOption<ToyBox>());                // From Tezcatara
+        pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
+        pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
+        
+        
         return pool;
     }
 
@@ -68,26 +74,13 @@ public class VakuuPlusOne : CustomAncientModel {
     
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
-        var base3pools = OptionPools.Roll(Rng, (AncientEventModel) this).Select<BaseLib.Utils.AncientOption, EventOption>((Func<BaseLib.Utils.AncientOption, EventOption>) (option => this.RelicOption(option.ModelForOption))).ToList<EventOption>();
-        List<EventOption> list4 = this.Pool4.ToList<EventOption>();
-        list4.UnstableShuffle<EventOption>(this.Rng);
-        base3pools.Add(list4[0]);
-        return base3pools;
-    }
-    
-    private IEnumerable<EventOption> Pool4
-    {
-        get
-        {
-            return (IEnumerable<EventOption>) new List<EventOption>(new EventOption[5]
-            {
-                this.RelicOption<EmptyGem>(),
-                this.RelicOption<BottomlessTankard>(),
-                this.RelicOption<TwinDice>(),
-                this.RelicOption<CorruptedLance>(),
-                this.RelicOption<VoidVial>()
-            });
-        }
+        List<EventOption> Offerings = new List<EventOption>();
+        List<EventOption> options = this.TotalPool().ToList<EventOption>();
+        options.UnstableShuffle<EventOption>(this.Rng);
+        Offerings.Add(options[0]);
+        Offerings.Add(options[1]);
+        Offerings.Add(options[2]);
+        return Offerings;
     }
 
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
