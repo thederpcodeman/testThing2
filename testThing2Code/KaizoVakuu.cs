@@ -12,7 +12,7 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code;
 
-public class VakuuPlusOne : CustomAncientModel {
+public class KaizoVakuu : CustomAncientModel {
     public override IEnumerable<EventOption> AllPossibleOptions
     {
         get => this.TotalPool();
@@ -68,7 +68,7 @@ public class VakuuPlusOne : CustomAncientModel {
         pool.Add(RelicOption<SneckoEye>());             // From Darv
         //TODO add stone humidifier?
         //TODO add Shatter
-        //TODO add Reject
+        pool.Add(RelicOption<Reject>());                // From Vakuu Plus
         //TODO add Trade
         pool.Add(RelicOption<BingBong>());              // From Events
         pool.Add(RelicOption<Circlet>());               // From Events
@@ -78,7 +78,7 @@ public class VakuuPlusOne : CustomAncientModel {
         pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
         pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
         pool.Add(RelicOption<StoneCalendar>());         // From Rare Relic Pool
-        //TODO add Evil Stone Calendar
+        pool.Add(RelicOption<ObsidianCalendar>());         // From Vakuu Plus
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         //TODO add Glup Shitto
         pool.Add(RelicOption<NeowsBones>());            // From Neow
