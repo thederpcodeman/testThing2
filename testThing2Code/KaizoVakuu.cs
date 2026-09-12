@@ -45,20 +45,24 @@ public class KaizoVakuu : CustomAncientModel {
     protected IEnumerable<EventOption> TotalPool()
     {
         List<EventOption> pool = new List<EventOption>();
+        pool.Add(RelicOption<WhisperingEarring>());     // From Vakuu
         pool.Add(RelicOption<ToastyMittens>());         // From Tezcatara
         pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
         pool.Add(RelicOption<CallingBell>());           // From Darv
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
-        pool.Add(RelicOption<ShatterRelic>());   // From Kaizo Vakuu
-        pool.Add(RelicOption<Reject>());                // From Vakuu Plus
+        pool.Add(RelicOption<OmegaStamp>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<FlyingCarpetStrangler>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<ShatterRelic>());          // From Kaizo Vakuu
+        pool.Add(RelicOption<Reject>());                // From Kaizo Vakuu
         //TODO add Trade
         pool.Add(RelicOption<BingBong>());              // From Events
         pool.Add(RelicOption<Circlet>());               // From Events
         pool.Add(RelicOption<FragrantMushroom>());      // From Events
         pool.Add(RelicOption<RoyalPoison>());           // From Events
         pool.Add(RelicOption<FakeSneckoEye>());         // From Events
+        pool.Add(RelicOption<SneckoEye>());             // From Darv
         pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
         pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
         pool.Add(RelicOption<ObsidianCalendar>());         // From Kaizo Vakuu
@@ -73,9 +77,9 @@ public class KaizoVakuu : CustomAncientModel {
 
     public override bool IsValidForAct(ActModel act)
     {
-        return true;
+        return act.ActNumber() >= 1;
     }
-    
+
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
         List<EventOption> offerings = new List<EventOption>();

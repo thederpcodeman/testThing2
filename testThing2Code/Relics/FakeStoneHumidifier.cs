@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using testThing2.testThing2Code.Relics;
 
+namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(EventRelicPool))]
 public class FakeStoneHumidifier() : testThing2Relic
