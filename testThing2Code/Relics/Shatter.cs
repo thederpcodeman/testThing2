@@ -12,7 +12,7 @@ using testThing2.testThing2Code.Relics;
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class Shatter() : testThing2Relic
+public class ShatterRelic() : testThing2Relic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
@@ -21,8 +21,8 @@ public class Shatter() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Shatter",
-        "Duplicate your entire Deck. Add Bad Luck to your Deck.",
-        "Duplicate your entire Deck. Add Bad Luck to your Deck.");
+        "Duplicate Your Deck, Add Bad Luck to Your Deck.",
+        "Duplicate Your Deck, Add Bad Luck to Your Deck.");
     
     public override async Task AfterObtained()
     {

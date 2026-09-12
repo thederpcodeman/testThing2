@@ -28,15 +28,7 @@ public class Reject() : testThing2Relic
     
     public override async Task AfterObtained()
     {
-        await CreatureCmd.LoseMaxHp((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, Owner.Creature.MaxHp, false);
         Flash();
-        for (int i = 0; i < 20; i++)
-        {
-            var damage = new DamageVar(Owner.Creature.MaxHp, ValueProp.Unpowered);
-            await CreatureCmd.Damage((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, damage,  null, null);
-            Flash();
-            await CardPileCmd.AddCursesToDeck(Enumerable.Repeat(ModelDb.Card<BadLuck>(), 1), Owner);
-            Flash();
-        }
+        var damage = new DamageVar(Owner.Creature.MaxHp + 999, ValueProp.Unpowered);
     }
 }

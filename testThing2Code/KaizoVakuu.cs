@@ -45,29 +45,13 @@ public class KaizoVakuu : CustomAncientModel {
     protected IEnumerable<EventOption> TotalPool()
     {
         List<EventOption> pool = new List<EventOption>();
-        pool.Add(RelicOption<BloodSoakedRose>());       // From Vakuu
-        pool.Add(RelicOption<WhisperingEarring>());     // From Vakuu
-        pool.Add(RelicOption<Fiddle>());                // From Vakuu
-        pool.Add(RelicOption<PreservedFog>());          // From Vakuu
-        pool.Add(RelicOption<SereTalon>());             // From Vakuu
-        pool.Add(RelicOption<DistinguishedCape>());     // From Vakuu
-        pool.Add(RelicOption<ChoicesParadox>());        // From Vakuu
-        pool.Add(RelicOption<MusicBox>());              // From Vakuu
-        pool.Add(RelicOption<LordsParasol>());          // From Vakuu
-        pool.Add(RelicOption<JeweledMask>());           // From Vakuu
-        pool.Add(RelicOption<VoidVial>());              // From Vakuu Plus
-        pool.Add(RelicOption<BottomlessTankard>());     // From Vakuu Plus
-        pool.Add(RelicOption<TwinDice>());              // From Vakuu Plus
-        pool.Add(RelicOption<EmptyGem>());              // From Vakuu Plus
-        pool.Add(RelicOption<CorruptedLance>());        // From Vakuu Plus
         pool.Add(RelicOption<ToastyMittens>());         // From Tezcatara
         pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
         pool.Add(RelicOption<CallingBell>());           // From Darv
-        pool.Add(RelicOption<SneckoEye>());             // From Darv
-        //TODO add stone humidifier?
-        //TODO add Shatter
+        pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<ShatterRelic>());   // From Kaizo Vakuu
         pool.Add(RelicOption<Reject>());                // From Vakuu Plus
         //TODO add Trade
         pool.Add(RelicOption<BingBong>());              // From Events
@@ -77,8 +61,7 @@ public class KaizoVakuu : CustomAncientModel {
         pool.Add(RelicOption<FakeSneckoEye>());         // From Events
         pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
         pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
-        pool.Add(RelicOption<StoneCalendar>());         // From Rare Relic Pool
-        pool.Add(RelicOption<ObsidianCalendar>());         // From Vakuu Plus
+        pool.Add(RelicOption<ObsidianCalendar>());         // From Kaizo Vakuu
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         //TODO add Glup Shitto
         pool.Add(RelicOption<NeowsBones>());            // From Neow
