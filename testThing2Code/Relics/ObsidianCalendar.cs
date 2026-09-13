@@ -99,7 +99,7 @@ public class ObsidianCalendar() : testThing2Relic
     Status = RelicStatus.Normal;
     if (turnNumber != intValue)
       return;
-    TaskHelper.RunSafely(DoActivateVisuals());
+    await TaskHelper.RunSafely(DoActivateVisuals());
     IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, (IEnumerable<Creature>) Owner.Creature.CombatState.Creatures, DynamicVars.Damage, Owner.Creature);
     InvokeDisplayAmountChanged();
   }

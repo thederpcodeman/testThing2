@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -30,5 +31,7 @@ public class Reject() : testThing2Relic
     {
         Flash();
         var damage = new DamageVar(Owner.Creature.MaxHp + 999, ValueProp.Unpowered);
+        await CreatureCmd.Damage((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, damage, Owner.Creature);
+
     }
 }
