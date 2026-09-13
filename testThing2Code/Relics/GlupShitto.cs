@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Runs.History;
 using testThing2.testThing2Code.Cards;
@@ -34,9 +35,12 @@ public class GlupShitto() : testThing2Relic
     
     public override async Task AfterObtained()
     {
-        CardCreationOptions options1 = new CardCreationOptions((IEnumerable<CardPoolModel>) new List<CardPoolModel>([(CardPoolModel) ModelDb.CardPool<GlupShittoCardPool>()]), CardCreationSource.Other, CardRarityOddsType.Uniform);
-        List<CardModel> options = CardFactory.CreateForReward(Owner, 2, options1).Select<CardCreationResult, CardModel>((Func<CardCreationResult, CardModel>) (c => c.Card)).ToList<CardModel>();
-        await CardSelectCmd.FromChooseACardScreen((PlayerChoiceContext) new BlockingPlayerChoiceContext(), (IReadOnlyList<CardModel>) options, Owner, true);
+        List<CardModel> options = [ModelDb.Card<DexterJexter>(), ModelDb.Card<LukeButTwoTaller>()];
+        var chosenCard = await CardSelectCmd.FromChooseACardScreen((PlayerChoiceContext) new BlockingPlayerChoiceContext(), (IReadOnlyList<CardModel>) options, Owner, true);
+        if (chosenCard != null)
+        {
+            await CardPileCmd.Add(chosenCard, Owner.Deck);
+        }
     }
 
     

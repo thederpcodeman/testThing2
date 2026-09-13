@@ -49,9 +49,8 @@ public class BiigHug() : testThing2Relic
     {
         if (shuffler == Owner)
         {
-            await CardPileCmd.AddCursesToDeck(Enumerable.Repeat(ModelDb.Card<Soot>(), 1), Owner);
-            Flash();
-            CardCmd.Preview(ModelDb.Card<Soot>(), 0.75f);
+            CardModel card = Owner.RunState.CreateCard(ModelDb.Card<Soot>(), Owner);
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 0.75f);
             await Cmd.Wait(1f);
         }
     }

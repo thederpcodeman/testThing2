@@ -22,8 +22,8 @@ public class FakeStoneHumidifier() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "StoneHumidifier",
-        "Whoever you defeat an Elite, other Elites will begin with 3 additional Strength.",
-        "Whoever you defeat an Elite, other Elites will begin with 3 additional Strength.");
+        "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.",
+        "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.");
 
     protected override IEnumerable<DynamicVar> CanonicalVars
     {
@@ -47,7 +47,13 @@ public class FakeStoneHumidifier() : testThing2Relic
         if ((currentRoom != null ? (currentRoom.RoomType != RoomType.Elite ? 1 : 0) : 1) != 0)
             return;
         Flash();
-        await PowerCmd.Apply<StrengthPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["SelfStrength"].BaseValue, Owner.Creature, (CardModel) null);
+        await PowerCmd.Apply<StrengthPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["SelfStrength"].BaseValue, Owner.Creature,null,  false);
         DynamicVars["EnemyStrength"].BaseValue += 3;
     }
+
+    public override async Task AfterActEntered()
+    {
+        DynamicVars["EnemyStrength"].BaseValue = 3;
+    }
+    
 }
