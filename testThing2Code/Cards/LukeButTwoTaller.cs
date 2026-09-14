@@ -14,7 +14,7 @@ namespace testThing2.testThing2Code.Cards;
 
 [Pool(typeof(GlupShittoCardPool))]
 public class LukeButTwoTaller() : testThing2Card( 0,
-    CardType.Power, CardRarity.Rare,
+    CardType.Power, CardRarity.Ancient,
     TargetType.AllEnemies)
 {
     
@@ -24,13 +24,6 @@ public class LukeButTwoTaller() : testThing2Card( 0,
         get
         {
             return (IEnumerable<DynamicVar>) new List<DynamicVar>([new DynamicVar("Shrink", 2M)]);
-        }
-    }
-    public override IEnumerable<CardKeyword> CanonicalKeywords
-    {
-        get
-        {
-            return (IEnumerable<CardKeyword>) new List<CardKeyword>([CardKeyword.Innate]);
         }
     }
 

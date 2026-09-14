@@ -48,12 +48,12 @@ public class FakeStoneHumidifier() : testThing2Relic
             return;
         Flash();
         await PowerCmd.Apply<StrengthPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["SelfStrength"].BaseValue, Owner.Creature,null,  false);
-        DynamicVars["EnemyStrength"].BaseValue += 3;
+        this.DynamicVars["StrengthLoss"].UpgradeValueBy(3M);
     }
 
     public override async Task AfterActEntered()
     {
-        DynamicVars["EnemyStrength"].BaseValue = 3;
+        DynamicVars["EnemyStrength"].UpgradeValueBy(DynamicVars["StrengthLoss"].BaseValue * -1M);
     }
     
 }

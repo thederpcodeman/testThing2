@@ -1,3 +1,6 @@
 {
-  
+  "TESTTHING2-BEFOREIMAGE.description": "Whenever you play a card, this enemy gains [blue]1[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, this enemy gains [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.smartDescription": "Whenever you play a card, this enemy gains [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.title": "Beforeimage"
 }

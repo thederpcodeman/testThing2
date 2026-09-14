@@ -1,17 +1,16 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Utils;
+﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using testThing2.testThing2Code.Cards;
-using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Cards;
 [Pool(typeof(GlupShittoCardPool))]
-public class DexterJexter() : testThing2Card( 1,
+public class ForeshadowCloud() : testThing2Card( 0,
     CardType.Power, CardRarity.Ancient,
     TargetType.Self)
 {
@@ -19,7 +18,7 @@ public class DexterJexter() : testThing2Card( 1,
     {
         get
         {
-            return (IEnumerable<DynamicVar>) new List<DynamicVar>([new DynamicVar("Regen", 5M)]);
+            return (IEnumerable<DynamicVar>) new List<DynamicVar>([new DynamicVar("BeforeImage", 1M)]);
         }
     }
 
@@ -28,12 +27,16 @@ public class DexterJexter() : testThing2Card( 1,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "PowerUp", Owner.Character.PowerUpAnimDelay);
-        if (play.Target != null)
+        if (CombatState == null)
         {
-            await PowerCmd.Apply<RegenPower>(choiceContext, play.Target, DynamicVars["Regen"].BaseValue, Owner.Creature,
+            return;
+        }
+        foreach (Creature c in CombatState.Creatures)
+        {
+            await PowerCmd.Apply<RegenPower>(choiceContext, c, DynamicVars["BeforeImage"].BaseValue, Owner.Creature,
                 (CardModel)this);
         }
     }
 
-    protected override void OnUpgrade() => this.DynamicVars["Regen"].UpgradeValueBy(4M);
+    protected override void OnUpgrade() => this.DynamicVars["BeforeImage"].UpgradeValueBy(1M);
 }
