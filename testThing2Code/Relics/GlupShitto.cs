@@ -54,6 +54,7 @@ public class GlupShitto() : testThing2Relic
         
         options.Add(ModelDb.Card<LukeButTwoTaller>());
         options.Add(ModelDb.Card<DexterJexter>());
+        options.Add(ModelDb.Card<ForeshadowCloud>());
         
         card.Add(options[Rng.Chaotic.NextInt(0, options.Count)]);
         return card;
