@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;

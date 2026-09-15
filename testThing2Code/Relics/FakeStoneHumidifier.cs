@@ -43,17 +43,29 @@ public class FakeStoneHumidifier() : testThing2Relic
     {
         if (!participants.Contains<Creature>(Owner.Creature) || Owner.PlayerCombatState == null || Owner.PlayerCombatState.TurnNumber > 1)
             return;
+        if (combatState.RunState.CurrentRoom == null)
+        {
+            return;
+        }
         AbstractRoom currentRoom = combatState.RunState.CurrentRoom;
-        if ((currentRoom != null ? (currentRoom.RoomType != RoomType.Elite ? 1 : 0) : 1) != 0)
+        if (currentRoom.RoomType != RoomType.Elite)
             return;
         Flash();
-        await PowerCmd.Apply<StrengthPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["SelfStrength"].BaseValue, Owner.Creature,null,  false);
-        this.DynamicVars["StrengthLoss"].UpgradeValueBy(3M);
+        foreach (var creature in combatState.Enemies)
+        {
+            if (creature.Side != Owner.Creature.Side)
+            {
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, DynamicVars["EnemyStrength"].BaseValue, Owner.Creature,null,  false);
+                
+            }
+        }
+        this.DynamicVars["EnemyStrength"].UpgradeValueBy(3M);
+        
     }
 
     public override async Task AfterActEntered()
     {
-        DynamicVars["EnemyStrength"].UpgradeValueBy(DynamicVars["StrengthLoss"].BaseValue * -1M);
+        DynamicVars["EnemyStrength"].UpgradeValueBy(DynamicVars["EnemyStrength"].BaseValue * -1M);
     }
     
 }

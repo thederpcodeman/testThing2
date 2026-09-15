@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using testThing2.testThing2Code.Cards;
+using testThing2.testThing2Code.Powers;
 
 namespace testThing2.testThing2Code.Cards;
 [Pool(typeof(GlupShittoCardPool))]
@@ -33,7 +34,7 @@ public class ForeshadowCloud() : testThing2Card( 0,
         }
         foreach (Creature c in CombatState.Creatures)
         {
-            await PowerCmd.Apply<RegenPower>(choiceContext, c, DynamicVars["BeforeImage"].BaseValue, Owner.Creature,
+            await PowerCmd.Apply<Beforeimage>(choiceContext, c, DynamicVars["BeforeImage"].BaseValue, Owner.Creature,
                 (CardModel)this);
         }
     }

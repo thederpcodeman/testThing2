@@ -3,6 +3,8 @@
   "TESTTHING2-LUKE_BUT_TWO_TALLER.title": "Luke Skywalker But 2 Inches Taller",
   "TESTTHING2-DEXTER_JEXTER.description": "Gain {ShrinkPower:diff()} [gold]Regen[/gold].",
   "TESTTHING2-DEXTER_JEXTER.title": "Dexter Jexter",
-  "TESTTHING2-FORESHADOW_CLOUD.description": "When you play a card, Everything gains {BeforeImage:diff()} block",
-  "TESTTHING2-FORESHADOW_CLOUD.title": "The Cloud that Foreshadowed Darth Vader"
+  "TESTTHING2-FORESHADOW_CLOUD.description": "When you play a card, [gold]Everything[/gold] gains {BeforeImage:diff()} block.",
+  "TESTTHING2-FORESHADOW_CLOUD.title": "The Cloud that Foreshadowed Darth Vader",
+  "TESTTHING2-GLONK.description": "Draw [gold]{cards:diff()}[/gold] cards",
+  "TESTTHING2-GLONK.title": "Glonk"
 }
