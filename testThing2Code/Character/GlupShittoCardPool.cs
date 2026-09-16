@@ -1,10 +1,13 @@
-﻿using Godot;
+﻿using BaseLib.Abstracts;
+using Godot;
 using MegaCrit.Sts2.Core.Models;
+using testThing2.testThing2Code.Cards;
 using MegaCrit.Sts2.Core.Models.Cards;
 
-namespace testThing2.testThing2Code.Cards;
+#nullable enable
+namespace testThing2.testThing2Code.Character;
 
-public class GlupShittoCardPool : CardPoolModel
+public class GlupShittoCardPool : CustomCardPoolModel
 {
   public override string Title => "glup shitto";
 
@@ -20,10 +23,11 @@ public class GlupShittoCardPool : CardPoolModel
 
   protected override CardModel[] GenerateAllCards()
   {
-    return new CardModel[2]
+    return new CardModel[3]
     {
       (CardModel)ModelDb.Card<DexterJexter>(),
-      (CardModel)ModelDb.Card<LukeButTwoTaller>()
+      (CardModel)ModelDb.Card<LukeButTwoTaller>(),
+      (CardModel)ModelDb.Card<ForeshadowCloud>()
     };
   }
   

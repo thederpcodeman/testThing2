@@ -37,28 +37,30 @@ public class GlupShitto() : testThing2Relic
         "At the start of each combat, add a random obscure star wars character to your draw pile.");
 
 
-    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (!participants.Contains<Creature>(Owner.Creature) || Owner.PlayerCombatState == null || Owner.PlayerCombatState.TurnNumber > 1)
-            return base.AfterSideTurnStart(side, participants, combatState);
-        else
+        if (!participants.Contains<Creature>(Owner.Creature) || Owner.PlayerCombatState == null ||
+            Owner.PlayerCombatState.TurnNumber > 1)
         {
-            
-            return CardPileCmd.AddGeneratedCardsToCombat(GlupGet(), PileType.Draw, Owner, CardPilePosition.Random);
+            return;
         }
+        
+        await CardPileCmd.Add(Owner.RunState.CreateCard(GlupGet(), Owner), PileType.Draw, CardPilePosition.Random, null, false );
+        MainFile.Logger.Info("Card added");
     }
 
-    public IEnumerable<CardModel> GlupGet()
+    public CardModel GlupGet()
     {
-        List<CardModel> card = new List<CardModel>([]);
         List<CardModel> options = new List<CardModel>([]);
         
         options.Add(ModelDb.Card<LukeButTwoTaller>());
         options.Add(ModelDb.Card<DexterJexter>());
         options.Add(ModelDb.Card<ForeshadowCloud>());
+
+        int choice = Rng.Chaotic.NextInt(0, options.Count);
+        MainFile.Logger.Info("Card added = " + choice.ToString());
         
-        card.Add(options[Rng.Chaotic.NextInt(0, options.Count)]);
-        return card;
+        return options[choice];
     }
 
     
