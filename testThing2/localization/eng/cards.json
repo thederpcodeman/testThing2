@@ -1,10 +1,10 @@
 {
-  "TESTTHING2-LUKE_BUT_TWO_TALLER.description": "All Enemies Deal {ShrinkPower:diff()} less damage.",
+  "TESTTHING2-LUKE_BUT_TWO_TALLER.description": "Shrink an Enemy for 2/3 turns.",
   "TESTTHING2-LUKE_BUT_TWO_TALLER.title": "Luke Skywalker But 2 Inches Taller",
-  "TESTTHING2-DEXTER_JEXTER.description": "Gain {ShrinkPower:diff()} [gold]Regen[/gold].",
+  "TESTTHING2-DEXTER_JEXTER.description": "Gain 5/9 [gold]Regen[/gold].",
   "TESTTHING2-DEXTER_JEXTER.title": "Dexter Jexter",
-  "TESTTHING2-FORESHADOW_CLOUD.description": "When you play a card, [gold]Everything[/gold] gains {BeforeImage:diff()} block.",
+  "TESTTHING2-FORESHADOW_CLOUD.description": "When you play a card, [gold]Everything[/gold] gains 1/2 block.",
   "TESTTHING2-FORESHADOW_CLOUD.title": "The Cloud that Foreshadowed Darth Vader",
-  "TESTTHING2-GLONK.description": "Draw [gold]{cards:diff()}[/gold] cards",
+  "TESTTHING2-GLONK.description": "Draw [gold]0/1[/gold] cards",
   "TESTTHING2-GLONK.title": "Glonk"
 }

@@ -39,8 +39,8 @@ public class Beforeimage() : testThing2Power
         if (!GetInternalData<Data>().amountsForPlayedCards.Remove(cardPlay.Card, out amount))
             return;
         Flash();
-        var block = new BlockVar(amount, ValueProp.Move);
-        await CreatureCmd.GainBlock(Owner, DynamicVars.Block, null, true);
+        var block = new BlockVar(amount * Amount, ValueProp.Move);
+        await CreatureCmd.GainBlock(Owner, block, null, true);
     }
 
     private class Data

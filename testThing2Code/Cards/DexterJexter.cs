@@ -5,14 +5,14 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
-using testThing2.testThing2Code.Character;
 using testThing2.testThing2Code.Cards;
 using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Cards;
 
-[Pool(typeof(GlupShittoCardPool))]
+[Pool(typeof(ColorlessCardPool))]
 public class DexterJexter() : testThing2Card( 1,
     CardType.Power, CardRarity.Ancient,
     TargetType.Self)
@@ -30,11 +30,9 @@ public class DexterJexter() : testThing2Card( 1,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "PowerUp", Owner.Character.PowerUpAnimDelay);
-        if (play.Target != null)
-        {
-            await PowerCmd.Apply<RegenPower>(choiceContext, play.Target, DynamicVars["Regen"].BaseValue, Owner.Creature,
+        
+        await PowerCmd.Apply<RegenPower>(choiceContext, Owner.Creature, DynamicVars["Regen"].BaseValue, Owner.Creature,
                 (CardModel)this);
-        }
     }
 
     protected override void OnUpgrade() => this.DynamicVars["Regen"].UpgradeValueBy(4M);

@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -17,6 +18,7 @@ using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Runs.History;
 using testThing2.testThing2Code.Cards;
@@ -27,6 +29,7 @@ namespace testThing2.testThing2Code.Relics;
 [Pool(typeof(EventRelicPool))]
 public class GlupShitto() : testThing2Relic
 {
+
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
     
@@ -45,22 +48,18 @@ public class GlupShitto() : testThing2Relic
             return;
         }
         
-        await CardPileCmd.Add(Owner.RunState.CreateCard(GlupGet(), Owner), PileType.Draw, CardPilePosition.Random, null, false );
-        MainFile.Logger.Info("Card added");
-    }
-
-    public CardModel GlupGet()
-    {
-        List<CardModel> options = new List<CardModel>([]);
+        int choice = Rng.Chaotic.NextInt(0, 3);
+        if (choice == 0)
+        {
+            await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner);    
+        } else if (choice == 1)
+        {
+            await CardPileCmd.AddToCombatAndPreview<LukeButTwoTaller>(Owner.Creature, PileType.Draw, 1, Owner);
+        } else if (choice == 2)
+        {
+            await CardPileCmd.AddToCombatAndPreview<ForeshadowCloud>(Owner.Creature, PileType.Draw, 1, Owner);
+        }
         
-        options.Add(ModelDb.Card<LukeButTwoTaller>());
-        options.Add(ModelDb.Card<DexterJexter>());
-        options.Add(ModelDb.Card<ForeshadowCloud>());
-
-        int choice = Rng.Chaotic.NextInt(0, options.Count);
-        MainFile.Logger.Info("Card added = " + choice.ToString());
-        
-        return options[choice];
     }
 
     

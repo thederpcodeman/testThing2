@@ -78,7 +78,7 @@ public class KaizoVakuu : CustomAncientModel {
 
     public override bool IsValidForAct(ActModel act)
     {
-        return act.ActNumber() >= 1;
+        return true;
     }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
@@ -86,7 +86,7 @@ public class KaizoVakuu : CustomAncientModel {
         List<EventOption> offerings = new List<EventOption>();
         List<EventOption> options = this.TotalPool().ToList<EventOption>();
         options.UnstableShuffle<EventOption>(this.Rng);
-        offerings.Add(options[0]);
+        offerings.Add(options[0]);      
         offerings.Add(options[1]);
         offerings.Add(options[2]);
         return offerings;
