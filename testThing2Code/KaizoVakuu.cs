@@ -86,10 +86,18 @@ public class KaizoVakuu : CustomAncientModel {
     {
         List<EventOption> offerings = new List<EventOption>();
         List<EventOption> options = this.TotalPool().ToList<EventOption>();
+        List<EventOption> options2 = new List<EventOption>();
+        foreach (var option in options)
+        {
+            if (option.Relic == null || Owner == null || option.Relic.IsAllowed(Owner.RunState))
+            {
+                options2.Add(option);
+            }
+        }
         options.UnstableShuffle<EventOption>(this.Rng);
-        offerings.Add(options[0]);      
-        offerings.Add(options[1]);
-        offerings.Add(options[2]);
+        offerings.Add(options2[0]);      
+        offerings.Add(options2[1]);
+        offerings.Add(options2[2]);
         return offerings;
     }
 
