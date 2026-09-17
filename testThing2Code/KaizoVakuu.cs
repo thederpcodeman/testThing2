@@ -69,9 +69,10 @@ public class KaizoVakuu : CustomAncientModel {
         pool.Add(RelicOption<ObsidianCalendar>());      // From Kaizo Vakuu
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
-        pool.Add(RelicOption<BlackestOmen>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
+        pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
         pool.Add(RelicOption<NeowsBones>());            // From Neow
-        //TODO add 67
+        pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         
         
         return pool;
