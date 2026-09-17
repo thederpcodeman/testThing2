@@ -29,7 +29,7 @@ public class Heteroslop() : testThing2Card(-1,
     {
         get
         {
-            return (IEnumerable<CardKeyword>) new  List<CardKeyword>([CardKeyword.Unplayable, CardKeyword.Retain]);
+            return (IEnumerable<CardKeyword>) new  List<CardKeyword>([CardKeyword.Unplayable, CardKeyword.Retain, CardKeyword.Eternal]);
         }
     }
     

@@ -32,8 +32,8 @@ public class Fanfiction() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Fanfiction",
-        "Add either Yaoi, Yuri, or Heteroslop to your deck",
-        "Add [gold]Your Eternal Reward[/gold] to your [blue]deck[/blue].");
+        "Add either Yaoi, Yuri, or Heteroslop to your deck at random.",
+        "Add either Yaoi, Yuri, or Heteroslop to your deck at random.");
     
     public override bool HasUponPickupEffect => true;
 

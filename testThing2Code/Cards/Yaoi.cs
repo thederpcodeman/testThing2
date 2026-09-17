@@ -32,7 +32,7 @@ public class Yaoi() : testThing2Card(1,
     {
         get
         {
-            return (IEnumerable<CardKeyword>) new List<CardKeyword>([CardKeyword.Innate, CardKeyword.Retain]);
+            return (IEnumerable<CardKeyword>) new List<CardKeyword>([CardKeyword.Innate, CardKeyword.Retain, CardKeyword.Eternal]);
         }
     }
 
