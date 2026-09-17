@@ -70,8 +70,13 @@ public class KaizoVakuu : CustomAncientModel {
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
         pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
+        pool.Add(RelicOption<CursedBlade>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<UncountablyInfiniteBlades>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<EyeOfStars>());           // From Kaizo Vakuu
         pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
+        pool.Add(RelicOption<Diffusion>());           // From Kaizo Vakuu
         pool.Add(RelicOption<NeowsBones>());            // From Neow
+        pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         
         
@@ -95,7 +100,7 @@ public class KaizoVakuu : CustomAncientModel {
                 options2.Add(option);
             }
         }
-        options.UnstableShuffle<EventOption>(this.Rng);
+        options2.UnstableShuffle<EventOption>(this.Rng);
         offerings.Add(options2[0]);      
         offerings.Add(options2[1]);
         offerings.Add(options2[2]);

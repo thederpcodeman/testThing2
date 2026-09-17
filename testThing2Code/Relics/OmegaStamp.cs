@@ -6,12 +6,14 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.ValueProps;
+using testThing2.testThing2Code.Cards;
 using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
@@ -35,6 +37,11 @@ public class OmegaStamp() : testThing2Relic
         {
             return (IEnumerable<DynamicVar>) new List<DynamicVar>([(DynamicVar) new CardsVar(3)]);
         }
+    }
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    {
+        get => new List<IHoverTip>(HoverTipFactory.FromEnchantment<RoyallyApproved>());
     }
 
     public override Decimal ModifyHandDraw(Player player, Decimal count)

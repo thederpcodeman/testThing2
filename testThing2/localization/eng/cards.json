@@ -1,4 +1,10 @@
 {
+  "TESTTHING2-YAOI.description": "Gain 2/4 Strength, gain 1 energy, draw a card.",
+  "TESTTHING2-YAOI.title": "Yaoi",
+  "TESTTHING2-YURI.description": "Gain 2/4 Dexterity, gain 1 energy, draw a card.",
+  "TESTTHING2-YURI.title": "Yuri",
+  "TESTTHING2-HETEROSLOP.description": "You cannot play more than 3 cards per turn.",
+  "TESTTHING2-HETEROSLOP.title": "Heteroslop",
   "TESTTHING2-LUKE_BUT_TWO_TALLER.description": "Shrink an Enemy for 2/3 turns.",
   "TESTTHING2-LUKE_BUT_TWO_TALLER.title": "Luke Skywalker But 2 Inches Taller",
   "TESTTHING2-DEXTER_JEXTER.description": "Gain 5/9 [gold]Regen[/gold].",

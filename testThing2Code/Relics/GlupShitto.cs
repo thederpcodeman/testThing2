@@ -51,16 +51,16 @@ public class GlupShitto() : testThing2Relic
         int choice = Rng.Chaotic.NextInt(0, 3);
         if (choice == 0)
         {
-            await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner);    
+            await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);    
         } else if (choice == 1)
         {
-            await CardPileCmd.AddToCombatAndPreview<LukeButTwoTaller>(Owner.Creature, PileType.Draw, 1, Owner);
+            await CardPileCmd.AddToCombatAndPreview<LukeButTwoTaller>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         } else if (choice == 2)
         {
-            await CardPileCmd.AddToCombatAndPreview<ForeshadowCloud>(Owner.Creature, PileType.Draw, 1, Owner);
+            await CardPileCmd.AddToCombatAndPreview<ForeshadowCloud>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         } else if (choice == 3)
         {
-            await CardPileCmd.AddToCombatAndPreview<Glonk>(Owner.Creature, PileType.Draw, 1, Owner);
+            await CardPileCmd.AddToCombatAndPreview<Glonk>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         }
         
     }

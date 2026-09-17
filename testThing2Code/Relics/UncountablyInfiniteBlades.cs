@@ -2,40 +2,49 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
+using testThing2.testThing2Code.Cards;
 using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class CursedBlade() : testThing2Relic
+public class UncountablyInfiniteBlades() : testThing2Relic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
     
     public override List<(string, string)> Localization => new PowerLoc(
-        "Cursed Blade",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.");
+        "Uncountably Infinite Blades",
+        "At the start of each turn, gain 1 energy and add a shiv to each player's draw pile.",
+        "At the start of each turn, gain 1 energy and add a shiv to each player's draw pile.");
 
     public override bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)
         {
-            necro = necro || player.Character is Ironclad;
+            necro = necro || player.Character is Silent;
         }
 
         return necro;
+    }
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    {
+        get => HoverTipFactory.FromCardWithCardHoverTips<Shiv>();
     }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
@@ -45,15 +54,11 @@ public class CursedBlade() : testThing2Relic
             return;
         }
 
-       
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1M, Owner.Creature, null, false);
-        Player player = combatState.Players[Rng.Chaotic.NextInt(0, combatState.Players.Count)];
-        if (player.PlayerCombatState is null || player.PlayerCombatState.DrawPile.Cards.Count == 0)
+
+        await PlayerCmd.GainEnergy(1M, Owner);
+        foreach (var player in combatState.Players)
         {
-            return;
+            await CardPileCmd.AddToCombatAndPreview<Shiv>(player.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         }
-        CardModel card = player.PlayerCombatState.DrawPile.Cards[Rng.Chaotic.NextInt(0, player.PlayerCombatState.DrawPile.Cards.Count)];
-        await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), card, false, false);
     }
-    
 }

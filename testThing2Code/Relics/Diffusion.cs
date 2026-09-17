@@ -3,36 +3,33 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
 using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class CursedBlade() : testThing2Relic
+public class Diffusion() : testThing2Relic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
     
     public override List<(string, string)> Localization => new PowerLoc(
-        "Cursed Blade",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.");
+        "Diffusion",
+        "At the start of each turn, gain 1 energy and all players lose 1 focus.",
+        "At the start of each turn, gain 1 energy and all players lose 1 focus.");
 
     public override bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)
         {
-            necro = necro || player.Character is Ironclad;
+            necro = necro || player.Character is Defect;
         }
 
         return necro;
@@ -45,15 +42,15 @@ public class CursedBlade() : testThing2Relic
             return;
         }
 
-       
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1M, Owner.Creature, null, false);
-        Player player = combatState.Players[Rng.Chaotic.NextInt(0, combatState.Players.Count)];
-        if (player.PlayerCombatState is null || player.PlayerCombatState.DrawPile.Cards.Count == 0)
+
+        await PlayerCmd.GainEnergy(1M, Owner);
+        if (Owner.PlayerCombatState.TurnNumber == 1)
         {
-            return;
+            foreach (var player in combatState.Players)
+            {
+                await PowerCmd.Apply<BiasedCognitionPower>(new ThrowingPlayerChoiceContext(), player.Creature, 1M, Owner.Creature, null, false);
+            }
         }
-        CardModel card = player.PlayerCombatState.DrawPile.Cards[Rng.Chaotic.NextInt(0, player.PlayerCombatState.DrawPile.Cards.Count)];
-        await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), card, false, false);
     }
     
 }
