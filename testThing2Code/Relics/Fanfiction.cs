@@ -3,6 +3,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Random;
@@ -24,6 +25,10 @@ public class Fanfiction() : testThing2Relic
         return runState.Players.Count > 1;
     }
     
+    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    {
+        get => new List<IHoverTip>([HoverTipFactory.FromCard<Yaoi>(), HoverTipFactory.FromCard<Yuri>(), HoverTipFactory.FromCard<Heteroslop>()]);
+    }
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Fanfiction",

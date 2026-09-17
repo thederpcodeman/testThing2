@@ -1,22 +1,23 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿
+using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
 using testThing2.testThing2Code.Cards;
 
 namespace testThing2.testThing2Code.Cards;
 
+[Pool(typeof(ColorlessCardPool))]
 public class Heteroslop() : testThing2Card(-1,
     CardType.Curse, CardRarity.Curse,
     TargetType.None)
 {
-    private const int _numOfCardsPerTurn = 3;
-    
-    private const string _calculatedCardsKey = "CalculatedCards";
     
     protected override bool ShouldGlowRedInternal => this.ShouldPreventCardPlay;
 
@@ -32,25 +33,13 @@ public class Heteroslop() : testThing2Card(-1,
         }
     }
     
-    protected override IEnumerable<DynamicVar> CanonicalVars
-    {
-        get
-        {
-            return (IEnumerable<DynamicVar>) new List<DynamicVar>(new DynamicVar[3]
-            {
-                (DynamicVar) new CalculationBaseVar(3M),
-                (DynamicVar) new CalculationExtraVar(-1M),
-                (DynamicVar) new CalculatedVar("CalculatedCards").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => (Decimal) Math.Min(3, this.CardsPlayedThisTurn)))
-            });
-        }
-    }
 
     public override bool ShouldPlay(CardModel card, AutoPlayType _)
     {
         if (card.Owner != this.Owner)
             return true;
-        CardPile pile = this.Pile;
-        return (pile != null ? (pile.Type != PileType.Hand ? 1 : 0) : 1) != 0 || !this.ShouldPreventCardPlay;
+        CardPile pile = Pile;
+        return (pile == null || pile.Type != PileType.Hand || !this.ShouldPreventCardPlay);
     }
 
     private int CardsPlayedThisTurn
