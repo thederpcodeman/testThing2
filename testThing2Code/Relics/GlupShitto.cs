@@ -58,6 +58,9 @@ public class GlupShitto() : testThing2Relic
         } else if (choice == 2)
         {
             await CardPileCmd.AddToCombatAndPreview<ForeshadowCloud>(Owner.Creature, PileType.Draw, 1, Owner);
+        } else if (choice == 3)
+        {
+            await CardPileCmd.AddToCombatAndPreview<Glonk>(Owner.Creature, PileType.Draw, 1, Owner);
         }
         
     }

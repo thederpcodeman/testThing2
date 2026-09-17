@@ -34,14 +34,11 @@ public class LukeButTwoTaller() : testThing2Card( 1,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        if (CombatState == null)
+        if (CombatState == null || CurrentTarget == null)
         {
             return;
         }
-        foreach (Creature hittableEnemy in this.GetTargets())
-        {
-            await PowerCmd.Apply<ShrinkPower>(choiceContext, hittableEnemy, DynamicVars["Shrink"].BaseValue, Owner.Creature, (CardModel) this);
-        }
+        await PowerCmd.Apply<ShrinkPower>(choiceContext, CurrentTarget, DynamicVars["Shrink"].BaseValue, Owner.Creature, (CardModel) this);
     }
 
     protected override void OnUpgrade() => this.DynamicVars["Shrink"].UpgradeValueBy(1M);

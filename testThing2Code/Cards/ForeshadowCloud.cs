@@ -35,8 +35,12 @@ public class ForeshadowCloud() : testThing2Card( 0,
         }
         foreach (Creature c in CombatState.Creatures)
         {
-            await PowerCmd.Apply<Beforeimage>(choiceContext, c, DynamicVars["BeforeImage"].BaseValue, Owner.Creature,
-                (CardModel)this);
+            if (c.IsPlayer)
+            {
+                await PowerCmd.Apply<Beforeimage>(choiceContext, c, DynamicVars["BeforeImage"].BaseValue,
+                    Owner.Creature,
+                    (CardModel)this);
+            }
         }
     }
 
