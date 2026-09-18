@@ -38,6 +38,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<BottomlessBox>());            // From Kaizo Vakuu
         pool.Add(RelicOption<FlyingCarpetStrangler>()); // From Kaizo Vakuu
         pool.Add(RelicOption<Reject>());                // From Kaizo Vakuu
         pool.Add(RelicOption<BingBong>());              // From Events
@@ -124,6 +125,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());      // From Kaizo Vakuu
+        pool.Add(RelicOption<BottomlessBox>());            // From Kaizo Vakuu
         pool.Add(RelicOption<BingBong>());              // From Events
         pool.Add(RelicOption<Circlet>());               // From Events
         pool.Add(RelicOption<FragrantMushroom>());      // From Events
