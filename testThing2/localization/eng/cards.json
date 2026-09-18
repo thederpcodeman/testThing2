@@ -9,12 +9,22 @@
   "TESTTHING2-LUKE_BUT_TWO_TALLER.title": "Luke Skywalker But 2 Inches Taller",
   "TESTTHING2-DEXTER_JEXTER.description": "Gain 5/9 [gold]Regen[/gold].",
   "TESTTHING2-DEXTER_JEXTER.title": "Dexter Jexter",
+  "TESTTHING2-NEIN_NUNB.description": "Add one of three random Powers into your [gold]Hand[/gold]. It's free to play this turn.",
+  "TESTTHING2-NEIN_NUNB.title": "Nein Nunb",
+  "TESTTHING2-ZUCKUSS.description": "Deal damage equal to half your [gold]Gold[/gold].",
+  "TESTTHING2-ZUCKUSS.title": "Zuckuss",
   "TESTTHING2-FORESHADOW_CLOUD.description": "When you play a card, [gold]Everything[/gold] gains 1/2 block.",
   "TESTTHING2-FORESHADOW_CLOUD.title": "The Cloud that Foreshadowed Darth Vader",
   "TESTTHING2-YOUR_ETERNAL_REWARD_CARD.description": "deal 7/13 damage, gain 1/2 energy, draw 1/2 cards, gain 2/3 strength",
   "TESTTHING2-YOUR_ETERNAL_REWARD_CARD.title": "Your Eternal Reward",
   "TESTTHING2-GLONK.description": "Draw [gold]0/1[/gold] cards",
   "TESTTHING2-GLONK.title": "Glonk",
+  "TESTTHING2-PAODOK.description": "Gain 1/2 Strength and Dexterity",
+  "TESTTHING2-PAODOK.title": "Paodok’Draba’Takat Sap’De’Rekti Nik’Linke’Ti’ Ki’Vef’Nik’NeSevef’Li’Kek",
   "TESTTHING2-TION_MEDON.description": "Draw [gold]2/3[/gold] cards",
-  "TESTTHING2-TION_MEDON.title": "Tion Medon"
+  "TESTTHING2-TION_MEDON.title": "Tion Medon",
+  "TESTTHING2-BEN_QUADINAROS.description": "Draw 5 damage to all enemies 5 times, increase the amount of times this hits by 1/2 this combat",
+  "TESTTHING2-BEN_QUADINAROS.title": "Ben Quadinaros",
+  "TESTTHING2-GONK_DROID.description": "Deal 100/150 damage.",
+  "TESTTHING2-GONK_DROID.title": "Gonk Droid"
 }

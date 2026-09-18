@@ -17,10 +17,10 @@ using testThing2.testThing2Code.Relics;
 namespace testThing2.testThing2Code.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class BiigHug() : testThing2Relic
+public class Spoiler() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
-        "BiigHug",
+        "Spoiler",
         "Upon pickup, remove 4 cards from your Deck. Whenever you shuffle your Draw Pile, add a Soot into your Deck.",
         "Upon pickup, remove 4 cards from your Deck. Whenever you shuffle your Draw Pile, add a Soot into your Deck.");
 

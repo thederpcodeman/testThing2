@@ -48,7 +48,7 @@ public class GlupShitto() : testThing2Relic
             return;
         }
         
-        int choice = Rng.Chaotic.NextInt(0, 5);
+        int choice = Rng.Chaotic.NextInt(0, 9);
         if (choice == 0)
         {
             await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);    
@@ -64,6 +64,21 @@ public class GlupShitto() : testThing2Relic
         } else if (choice == 4)
         {
             await CardPileCmd.AddToCombatAndPreview<TionMedon>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        } else if (choice == 5)
+        {
+            await CardPileCmd.AddToCombatAndPreview<NeinNunb>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        } else if (choice == 6)
+        {
+            await CardPileCmd.AddToCombatAndPreview<Zuckuss>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        } else if (choice == 7)
+        {
+            await CardPileCmd.AddToCombatAndPreview<Paodok>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        }else if (choice == 8)
+        {
+            await CardPileCmd.AddToCombatAndPreview<BenQuadinaros>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        }else if (choice == 9)
+        {
+            await CardPileCmd.AddToCombatAndPreview<GonkDroid>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         }
         
     }
