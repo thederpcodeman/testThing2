@@ -48,7 +48,7 @@ public class GlupShitto() : testThing2Relic
             return;
         }
         
-        int choice = Rng.Chaotic.NextInt(0, 3);
+        int choice = Rng.Chaotic.NextInt(0, 5);
         if (choice == 0)
         {
             await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);    
@@ -61,6 +61,9 @@ public class GlupShitto() : testThing2Relic
         } else if (choice == 3)
         {
             await CardPileCmd.AddToCombatAndPreview<Glonk>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+        } else if (choice == 4)
+        {
+            await CardPileCmd.AddToCombatAndPreview<TionMedon>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
         }
         
     }

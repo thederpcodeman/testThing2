@@ -71,13 +71,19 @@ public class KaizoVakuu : CustomAncientModel {
         pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
         pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
         pool.Add(RelicOption<CursedBlade>());           // From Kaizo Vakuu
-        pool.Add(RelicOption<UncountablyInfiniteBlades>());           // From Kaizo Vakuu
-        pool.Add(RelicOption<EyeOfStars>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<UncountablyInfiniteBlades>());     // From Kaizo Vakuu
+        pool.Add(RelicOption<EyeOfStars>());            // From Kaizo Vakuu
         pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
-        pool.Add(RelicOption<Diffusion>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicIronclad>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicSilent>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicRegent>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicNecrobinder>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
         pool.Add(RelicOption<NeowsBones>());            // From Neow
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
+        pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
         
         
         return pool;

@@ -13,7 +13,7 @@ using testThing2.testThing2Code.Cards;
 namespace testThing2.testThing2Code.Cards;
 
 [Pool(typeof(ColorlessCardPool))]
-public class Yaoi() : testThing2Card(1,
+public class Yaoi() : testThing2Card(0,
     CardType.Power, CardRarity.Ancient,
     TargetType.Self)
 {

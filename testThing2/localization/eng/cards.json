@@ -14,5 +14,7 @@
   "TESTTHING2-YOUR_ETERNAL_REWARD_CARD.description": "deal 7/13 damage, gain 1/2 energy, draw 1/2 cards, gain 2/3 strength",
   "TESTTHING2-YOUR_ETERNAL_REWARD_CARD.title": "Your Eternal Reward",
   "TESTTHING2-GLONK.description": "Draw [gold]0/1[/gold] cards",
-  "TESTTHING2-GLONK.title": "Glonk"
+  "TESTTHING2-GLONK.title": "Glonk",
+  "TESTTHING2-TION_MEDON.description": "Draw [gold]2/3[/gold] cards",
+  "TESTTHING2-TION_MEDON.title": "Tion Medon"
 }

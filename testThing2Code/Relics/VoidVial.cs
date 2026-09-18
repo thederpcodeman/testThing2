@@ -21,8 +21,8 @@ public class VoidVial() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
         "VoidVial",
-        "Enchant up to 4 cards with Inky, add a void to your deck",
-        "Enchant up to 4 cards with Inky, add a void to your deck");
+        "Enchant up to 3 cards with Inky, add a void to your deck",
+        "Enchant up to 3 cards with Inky, add a void to your deck");
 
     public override RelicRarity Rarity => RelicRarity.Ancient; 
 
