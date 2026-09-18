@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -27,11 +28,16 @@ public class Reject() : testThing2Relic
         "YOU CANNOT REFUSE!!",
         "Those who reject this privilege are penalized with DEATH Do you still defy!?");
     
-    public override async Task AfterObtained()
-    {
-        Flash();
-        var damage = new DamageVar(Owner.Creature.MaxHp + 999, ValueProp.Unpowered);
-        await CreatureCmd.Damage((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, damage, Owner.Creature);
 
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (Status != RelicStatus.Disabled)
+        {
+            Flash();
+            var damage = new DamageVar(Owner.Creature.MaxHp + 999, ValueProp.Unpowered);
+            await CreatureCmd.Damage((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, damage, Owner.Creature);
+            this.Status = RelicStatus.Disabled;
+        }
+        
     }
 }

@@ -1,18 +1,14 @@
 ﻿using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Extensions;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
 using testThing2.testThing2Code.Relics;
 
-namespace testThing2.testThing2Code;
+namespace testThing2.testThing2Code.Ancients;
 
-public class KaizoVakuu : CustomAncientModel {
+public class KaizoVakuuAct3 : CustomAncientModel {
     public override IEnumerable<EventOption> AllPossibleOptions
     {
         get => this.TotalPool();
@@ -21,53 +17,36 @@ public class KaizoVakuu : CustomAncientModel {
         [
             AncientOption<BloodSoakedRose>(),
             AncientOption<WhisperingEarring>(),
-            AncientOption<Fiddle>(),
-            //AncientOption<TwinDice>()
-            //more relic options
+            AncientOption<Fiddle>()
         ], [
             AncientOption<PreservedFog>(),
             AncientOption<SereTalon>(),
-            AncientOption<DistinguishedCape>(),
-            //AncientOption<CorruptedLance>(),
-            //AncientOption<EmptyGem>()
-            //more relic options
+            AncientOption<DistinguishedCape>()
         ], [
             AncientOption<ChoicesParadox>(),
             AncientOption<MusicBox>(),
             AncientOption<LordsParasol>(),
-            AncientOption<JeweledMask>(),
-            //AncientOption<VoidVial>(),
-            //AncientOption<BottomlessTankard>()
-            //more relic options
+            AncientOption<JeweledMask>()
         ]
     );
     
     protected IEnumerable<EventOption> TotalPool()
     {
         List<EventOption> pool = new List<EventOption>();
-        pool.Add(RelicOption<WhisperingEarring>());     // From Vakuu
-        pool.Add(RelicOption<ToastyMittens>());         // From Tezcatara
-        pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<CallingBell>());           // From Darv
         pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
-        pool.Add(RelicOption<OcdRelic>());              // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
-        pool.Add(RelicOption<OmegaStamp>());            // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());            // From Kaizo Vakuu
         pool.Add(RelicOption<FlyingCarpetStrangler>()); // From Kaizo Vakuu
-        pool.Add(RelicOption<ShatterRelic>());          // From Kaizo Vakuu
         pool.Add(RelicOption<Reject>());                // From Kaizo Vakuu
-        //TODO add Trade
         pool.Add(RelicOption<BingBong>());              // From Events
         pool.Add(RelicOption<Circlet>());               // From Events
         pool.Add(RelicOption<FragrantMushroom>());      // From Events
         pool.Add(RelicOption<RoyalPoison>());           // From Events
         pool.Add(RelicOption<FakeSneckoEye>());         // From Events
-        pool.Add(RelicOption<SneckoEye>());             // From Darv
         pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
         pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
-        pool.Add(RelicOption<ObsidianCalendar>());      // From Kaizo Vakuu
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
         pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
@@ -81,7 +60,6 @@ public class KaizoVakuu : CustomAncientModel {
         pool.Add(RelicOption<VillainyRelicRegent>());   // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicNecrobinder>()); // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
-        pool.Add(RelicOption<NeowsBones>());            // From Neow
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
@@ -92,26 +70,91 @@ public class KaizoVakuu : CustomAncientModel {
 
     public override bool IsValidForAct(ActModel act)
     {
-        return true;
+        return act.Index == 2;
     }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
         List<EventOption> offerings = new List<EventOption>();
-        List<EventOption> options = this.TotalPool().ToList<EventOption>();
-        List<EventOption> options2 = new List<EventOption>();
-        foreach (var option in options)
+        List<EventOption> finalOptions = new List<EventOption>();
+        List<EventOption> mainOptions = this.MainPool().ToList<EventOption>();
+        List<EventOption> villainyOptions = this.VillainyPool().ToList<EventOption>();
+        List<EventOption> validVillainyOptions = this.MainPool().ToList<EventOption>();
+        foreach (var option in mainOptions)
         {
             if (option.Relic == null || Owner == null || option.Relic.IsAllowed(Owner.RunState))
             {
-                options2.Add(option);
+                finalOptions.Add(option);
             }
         }
-        options2.UnstableShuffle<EventOption>(this.Rng);
-        offerings.Add(options2[0]);      
-        offerings.Add(options2[1]);
-        offerings.Add(options2[2]);
+        foreach (var option in villainyOptions)
+        {
+            if (option.Relic == null || Owner == null || option.Relic.IsAllowed(Owner.RunState))
+            {
+                validVillainyOptions.Add(option);
+            }
+        }
+
+        if (validVillainyOptions.Count > 0)
+        {
+            validVillainyOptions.UnstableShuffle<EventOption>(this.Rng);
+            finalOptions.Add(validVillainyOptions[0]);
+        }
+        finalOptions.UnstableShuffle<EventOption>(this.Rng);
+        if (Rng.NextInt(0, 12) == 0)
+        {
+            offerings.Add(finalOptions[0]);      
+            offerings.Add(finalOptions[0]);
+            offerings.Add(finalOptions[0]);
+        }
+        else
+        {
+            offerings.Add(finalOptions[0]);      
+            offerings.Add(finalOptions[1]);
+            offerings.Add(RelicOption<Reject>());
+        }
         return offerings;
+    }
+
+    protected List<EventOption> MainPool()
+    {
+        List<EventOption> pool = new List<EventOption>();
+        pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
+        pool.Add(RelicOption<CallingBell>());           // From Darv
+        pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
+        pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<WardOfProtection>());      // From Kaizo Vakuu
+        pool.Add(RelicOption<BingBong>());              // From Events
+        pool.Add(RelicOption<Circlet>());               // From Events
+        pool.Add(RelicOption<FragrantMushroom>());      // From Events
+        pool.Add(RelicOption<RoyalPoison>());           // From Events
+        pool.Add(RelicOption<FakeSneckoEye>());         // From Events
+        pool.Add(RelicOption<TeaOfDiscourtesy>());      // From Events
+        pool.Add(RelicOption<Brimstone>());             // From Ironclad Shop Pool
+        pool.Add(RelicOption<PaelsTooth>());            // From Pael
+        pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
+        pool.Add(RelicOption<CursedBlade>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<UncountablyInfiniteBlades>());     // From Kaizo Vakuu
+        pool.Add(RelicOption<EyeOfStars>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
+        pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
+        pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
+        pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
+        pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
+        return pool;
+    }
+    protected List<EventOption> VillainyPool()
+    {
+        List<EventOption> pool = new List<EventOption>();
+    
+        pool.Add(RelicOption<VillainyRelicIronclad>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicSilent>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicRegent>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicNecrobinder>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
+        return pool;
+        
     }
 
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
