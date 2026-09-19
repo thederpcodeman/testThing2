@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c35lvheslhvrd"
-path.bptc="res://.godot/imported/stone_humidifier.png-5d601e4584268421bef6fad3e0a9869f.bptc.ctex"
+path.bptc="res://.godot/imported/fake_stone_humidifier.png-c39bbb6e5d7aba8d8db3c67e1bc9e4ae.bptc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://images/relics/stone_humidifier.png"
-dest_files=["res://.godot/imported/stone_humidifier.png-5d601e4584268421bef6fad3e0a9869f.bptc.ctex"]
+source_file="res://testThing2/images/relics/fake_stone_humidifier.png"
+dest_files=["res://.godot/imported/fake_stone_humidifier.png-c39bbb6e5d7aba8d8db3c67e1bc9e4ae.bptc.ctex"]
 
 [params]
 
@@ -28,6 +28,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false

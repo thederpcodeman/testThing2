@@ -36,7 +36,7 @@ public class SixSeven() : testThing2Relic
     {
         await CreatureCmd.SetMaxAndCurrentHp(Owner.Creature, 67);
         Owner.Gold = 67;
-        int choice = Rng.Chaotic.NextInt(0, Owner.Deck.Cards.Count);
+        int choice = Owner.RunState.Rng.Niche.NextInt(0, Owner.Deck.Cards.Count);
         CardModel card = Owner.Deck.Cards[choice];
         CardCmd.ClearEnchantment(card);
         CardCmd.Enchant<SixSevenCost>(card, 1);

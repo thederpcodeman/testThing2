@@ -48,7 +48,7 @@ public class GlupShitto() : testThing2Relic
             return;
         }
         
-        int choice = Rng.Chaotic.NextInt(0, 9);
+        int choice = Owner.RunState.Rng.CombatCardGeneration.NextInt(0, 9);
         if (choice == 0)
         {
             await CardPileCmd.AddToCombatAndPreview<DexterJexter>(Owner.Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);    

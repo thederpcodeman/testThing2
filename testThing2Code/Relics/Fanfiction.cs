@@ -39,7 +39,7 @@ public class Fanfiction() : testThing2Relic
 
     public override async Task AfterObtained()
     {
-        int rand = Rng.Chaotic.NextInt(0, 3);
+        int rand = Owner.RunState.Rng.Niche.NextInt(0, 3);
         if (rand == 0)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>) new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Yaoi>(Owner), PileType.Deck)]), 2f);

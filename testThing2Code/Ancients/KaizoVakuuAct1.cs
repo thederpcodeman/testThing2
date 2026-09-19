@@ -45,10 +45,20 @@ public class KaizoVakuuAct1 : CustomAncientModel
         pool.Add(RelicOption<OcdRelic>()); // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>()); // From Kaizo Vakuu
         pool.Add(RelicOption<ShatterRelic>()); // From Kaizo Vakuu
-        pool.Add(RelicOption<Circlet>()); // From Events
-        pool.Add(RelicOption<FragrantMushroom>()); // From Events
-        pool.Add(RelicOption<NeowsBones>()); // From Neow
+        pool.Add(RelicOption<BigMushroom>()); // From Events
         pool.Add(RelicOption<SixSeven>()); // From Kaizo Vakuu
+        pool.Add(RelicOption<CursedPearl>());
+        pool.Add(RelicOption<HeftyTablet>());
+        pool.Add(RelicOption<LavaRock>());
+        pool.Add(RelicOption<NeowsSacrifice>());
+        pool.Add(RelicOption<PrecariousShears>());
+        pool.Add(RelicOption<SilverCrucible>());
+        pool.Add(RelicOption<EmberTea>());
+        pool.Add(RelicOption<NeowsBones>());
+        pool.Add(RelicOption<Circlet>()); // From Events
+        pool.Add(RelicOption<TeaOfDiscourtesy>()); // From Events
+        pool.Add(RelicOption<FragrantMushroom>()); // From Events
+        
 
 
         return pool;
