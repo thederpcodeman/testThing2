@@ -21,8 +21,8 @@ public class FlyingCarpetStrangler() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Flying Carpet",
-        "Card Rewards can now contain [red]Curses[/red]",
-        "Card Rewards can now contain [red]Curses[/red]");
+        "Card Rewards can now contain [red]Curses[/red].",
+        "Card Rewards can now contain [red]Curses[/red].");
     
     
     public override CardCreationOptions ModifyCardRewardCreationOptions(

@@ -28,8 +28,8 @@ public class OmegaStamp() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "The Omega Stamp",
-        "[gold]Enchant[/gold] your [gold]Deck[/gold] with [gold]Royally Approved[/gold]. Draw [blue]3[/blue] fewer cards at the start of your turn. Add a [red]Regret[/red] to your [gold]Deck[/gold]",
-        "[gold]Enchant[/gold] your [gold]Deck[/gold] with [gold]Royally Approved[/gold]. Draw [blue]3[/blue] fewer cards at the start of your turn. Add a [red]Regret[/red] to your [gold]Deck[/gold]");
+        "[gold]Enchant[/gold] your [gold]Deck[/gold] with [gold]Royally Approved[/gold]. Draw [blue]3[/blue] fewer cards at the start of your turn. Add a [red]Regret[/red] to your [gold]Deck[/gold].",
+        "[gold]Enchant[/gold] your [gold]Deck[/gold] with [gold]Royally Approved[/gold]. Draw [blue]3[/blue] fewer cards at the start of your turn. Add a [red]Regret[/red] to your [gold]Deck[/gold].");
     
     protected override IEnumerable<DynamicVar> CanonicalVars
     {
