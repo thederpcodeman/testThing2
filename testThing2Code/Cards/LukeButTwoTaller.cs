@@ -32,7 +32,7 @@ public class LukeButTwoTaller() : testThing2Card( 1,
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
-        get => HoverTipFactory.FromPowerWithPowerHoverTips<ShrinkPower>();
+        get => HoverTipFactory.FromPowerWithPowerHoverTips<ShrinkPower>(DynamicVars["Shrink"].IntValue);
     }
 
     protected override async Task OnPlay(

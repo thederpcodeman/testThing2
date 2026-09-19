@@ -1,10 +1,10 @@
 {
-  "TESTTHING2-BEFOREIMAGE.description": "Whenever you play a card, this enemy gains [blue]1[/blue] [gold]Block[/gold].",
-  "TESTTHING2-BEFOREIMAGE.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, this enemy gains [blue]{Amount}[/blue] [gold]Block[/gold].",
-  "TESTTHING2-BEFOREIMAGE.smartDescription": "Whenever you play a card, this enemy gains [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.description": "Whenever you play a card, this creature gains [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, this creature gains [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "TESTTHING2-BEFOREIMAGE.smartDescription": "Whenever you play a card, this creature gains [blue]{Amount}[/blue] [gold]Block[/gold].",
   "TESTTHING2-BEFOREIMAGE.title": "Beforeimage",
-  "TESTTHING2-VILLAINY_POWER.description": "Whenever you play a card, this enemy gains [blue]1[/blue] [gold]Dazed[/gold].",
-  "TESTTHING2-VILLAINY_POWER.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, this enemy gains [blue]{Amount}[/blue] [gold]Dazed[/gold].",
-  "TESTTHING2-VILLAINY_POWER.smartDescription": "Whenever you play a card, this enemy gains [blue]{Amount}[/blue] [gold]Dazed[/gold].",
+  "TESTTHING2-VILLAINY_POWER.description": "Whenever you play a card, this creature gains [blue]{Amount}[/blue] [purple]Dazed[/purple].",
+  "TESTTHING2-VILLAINY_POWER.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, this creature gains [blue]{Amount}[/blue] [purple]Dazed[/purple].",
+  "TESTTHING2-VILLAINY_POWER.smartDescription": "Whenever you plays a card, this creature gains [blue]{Amount}[/blue] [purple]Dazed[/purple].",
   "TESTTHING2-VILLAINY_POWER.title": "Villainy"
 }
