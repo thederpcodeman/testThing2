@@ -35,7 +35,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         List<EventOption> pool = new List<EventOption>();
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<CallingBell>());           // From Darv
-        pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
+        pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());            // From Kaizo Vakuu
         pool.Add(RelicOption<BottomlessBox>());            // From Kaizo Vakuu
@@ -122,7 +122,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         List<EventOption> pool = new List<EventOption>();
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<CallingBell>());           // From Darv
-        pool.Add(RelicOption<Spoiler>());               // From Kaizo Vakuu
+        pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());      // From Kaizo Vakuu
         pool.Add(RelicOption<BottomlessBox>());            // From Kaizo Vakuu
