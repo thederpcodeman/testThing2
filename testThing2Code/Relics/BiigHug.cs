@@ -21,8 +21,8 @@ public class BiigHug() : testThing2Relic
 {
     public override List<(string, string)> Localization => new PowerLoc(
         "BiigHug",
-        "Upon pickup, remove 4 cards from your Deck. Whenever you shuffle your Draw Pile, add a Soot into your Deck.",
-        "Upon pickup, remove 4 cards from your Deck. Whenever you shuffle your Draw Pile, add a Soot into your Deck.");
+        "Upon pickup, remove [blue]{Cards}[/blue] cards from your [gold]Deck[/gold]. Whenever you shuffle your [gold]Draw Pile[/gold], add a [gold]Soot[/gold] into your [gold]Deck[/gold].",
+        "Remove [blue]{Cards}[/blue] cards from your [gold]Deck[/gold]. Whenever you shuffle your [gold]Draw Pile[/gold], add a [gold]Soot[/gold] into your [gold]Deck[/gold].");
 
     public override RelicRarity Rarity => RelicRarity.Ancient; 
     
