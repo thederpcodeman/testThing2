@@ -28,8 +28,8 @@ public class UncountablyInfiniteBlades() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Uncountably Infinite Blades",
-        "At the start of each turn, gain 1 energy and add a shiv to each player's draw pile.",
-        "At the start of each turn, gain 1 energy and add a shiv to each player's draw pile.");
+        "#Gain [E] and add a [gold]shiv[/gold] to each player's [gold]Draw Pile[/gold] at the start of each turn.",
+        "#Gain [E] and add a [gold]shiv[/gold] to each player's [gold]Draw Pile[/gold] at the start of each turn.");
 
     public override bool IsAllowed(IRunState runState)
     {

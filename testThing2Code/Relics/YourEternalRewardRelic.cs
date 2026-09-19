@@ -36,8 +36,8 @@ public class YourEternalRewardRelic() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Your Reward",
-        "Add Your Eternal Reward to your deck.",
-        "Add [gold]Your Eternal Reward[/gold] to your [blue]deck[/blue].");
+        "Add [gold]Your Eternal Reward[/gold] to your [gold]Deck[/gold].",
+        "Add [gold]Your Eternal Reward[/gold] to your [gold]Deck[/gold].");
     
     public override bool HasUponPickupEffect => true;
 

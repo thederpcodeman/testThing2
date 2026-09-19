@@ -24,8 +24,8 @@ public class WardOfProtection() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Ward of Protection",
-        "Your entire deck becomes Eternal, gain Max HP equal to its size (max 40)",
-        "Your entire deck becomes Eternal, gain Max HP equal to its size (max 40)");
+        "Your entire [gold]Deck[/gold] becomes [purple]Eternal[/purple], gain [red]Max HP[/red] equal to its size [blue](max 40)[/blue].",
+        "Your entire [gold]Deck[/gold] becomes [purple]Eternal[/purple], gain [red]Max HP[/red] equal to its size [blue](max 40)[/blue].");
     
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips

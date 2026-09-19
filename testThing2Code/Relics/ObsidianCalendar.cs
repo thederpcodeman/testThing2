@@ -26,8 +26,8 @@ public class ObsidianCalendar() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Obsidian Calendar",
-        "Gain 1 energy, at the end of turn 7, deal 52 damage to EVERYONE",
-        "Gain 1 energy, at the end of turn 7, deal 52 damage to EVERYONE");
+        "#Gain [E] at the start of each turn, at the end of turn [blue]7[/blue], deal [blue]52[/blue] damage to [red]EVERYONE[/red].",
+        "#Gain [E] at the start of each turn, at the end of turn [blue]7[/blue], deal [blue]52[/blue] damage to [red]EVERYONE[/red].");
 
     public override Decimal ModifyMaxEnergy(Player player, Decimal amount)
     {

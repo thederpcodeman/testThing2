@@ -21,8 +21,8 @@ public class ShatterRelic() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Shatter",
-        "Duplicate Your Deck, Add Bad Luck to Your Deck.",
-        "Duplicate Your Deck, Add Bad Luck to Your Deck.");
+        "Duplicate your [gold]Deck[/gold]. Receive [purple]Bad Luck[/purple].",
+        "Duplicate your [gold]Deck[/gold]. Receive [purple]Bad Luck[/purple].");
     
     public override async Task AfterObtained()
     {

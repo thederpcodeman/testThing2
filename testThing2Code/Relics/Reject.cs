@@ -25,8 +25,8 @@ public class Reject() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Reject",
-        "YOU CANNOT REFUSE!!",
-        "Those who reject this privilege are penalized with DEATH Do you still defy!?");
+        "[red]YOU CANNOT REFUSE!![/red]",
+        "Those who reject this privilege are penalized with [red]DEATH[/red] Do you still defy!?");
     
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)

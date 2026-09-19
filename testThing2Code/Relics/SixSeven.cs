@@ -27,8 +27,8 @@ public class SixSeven() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "67",
-        "67",
-        "67");
+        "[gold]67[/gold]",
+        "[gold]67[/gold]");
     
     public override bool HasUponPickupEffect => true;
 

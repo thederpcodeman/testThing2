@@ -19,8 +19,8 @@ public class OcdRelic() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "OCD",
-        "Shuffle your discard pile into your deck each turn.",
-        "Shuffle your discard pile into your deck each turn.");
+        "[blue]Shuffle[/blue] [green]your[/green] [gold]Discard Pile[/gold] into [green]your[/green] [gold]Draw Pile[/gold] each [blue]turn[/blue].",
+        "[blue]Shuffle[/blue] [green]your[/green] [gold]Discard Pile[/gold] into [green]your[/green] [gold]Draw Pile[/gold] each [blue]turn[/blue].");
 
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
