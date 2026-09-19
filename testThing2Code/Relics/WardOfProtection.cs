@@ -24,8 +24,8 @@ public class WardOfProtection() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Ward of Protection",
-        "Your entire deck becomes Eternal",
-        "Your entire deck becomes Eternal");
+        "Your entire deck becomes Eternal, gain Max HP equal to its size (max 40)",
+        "Your entire deck becomes Eternal, gain Max HP equal to its size (max 40)");
     
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips
@@ -43,5 +43,6 @@ public class WardOfProtection() : testThing2Relic
             CardModel card = Owner.Deck.Cards[i];
             card.AddKeyword(CardKeyword.Eternal);
         }
+        await CreatureCmd.GainMaxHp(Owner.Creature, Math.Min(Owner.Deck.Cards.Count, 40));
     }
 }

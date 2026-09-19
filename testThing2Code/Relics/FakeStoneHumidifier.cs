@@ -21,7 +21,7 @@ public class FakeStoneHumidifier() : testThing2Relic
         RelicRarity.Ancient;
 
     public override List<(string, string)> Localization => new PowerLoc(
-        "StoneHumidifier",
+        "Stone Humidifier",
         "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.",
         "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.");
 
