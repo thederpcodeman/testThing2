@@ -23,8 +23,8 @@ public class BlackestOmen() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Blackest Omen",
-        "At the start of combat, gain 6 countdown and 1 neurosurge, all other players gain 2 countdown and 1 neurosurge.",
-        "At the start of combat, gain 6 countdown and 1 neurosurge, all other players gain 2 countdown and 1 neurosurge.");
+        "Start each combat with [blue]6[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple]. \nOther players start with [blue]2[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple].",
+        "Start each combat with [blue]6[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple]. \nOther players start with [blue]2[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple].");
 
     public override bool IsAllowed(IRunState runState)
     {

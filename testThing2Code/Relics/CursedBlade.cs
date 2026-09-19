@@ -24,8 +24,8 @@ public class CursedBlade() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Cursed Blade",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.",
-        "At the start of each turn, gain 1 strength and exhaust a random card in a random player's draw pile.");
+        "At the start of your turn, [gold]Exhaust[/gold] a [purple]random[/purple] card of a [purple]random[/purple] player's [gold]Draw Pile[/gold] and gain [blue]1[/blue] [gold]Strength[/gold].",
+        "At the start of your turn, [gold]Exhaust[/gold] a [purple]random[/purple] card of a [purple]random[/purple] player's [gold]Draw Pile[/gold] and gain [blue]1[/blue] [gold]Strength[/gold].");
 
     public override bool IsAllowed(IRunState runState)
     {

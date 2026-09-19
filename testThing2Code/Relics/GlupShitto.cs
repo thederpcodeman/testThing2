@@ -36,8 +36,8 @@ public class GlupShitto() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Glup Shitto",
-        "At the start of each combat, add a random obscure star wars character to your draw pile.",
-        "At the start of each combat, add a random obscure star wars character to your draw pile.");
+        "At the start of each combat, add a random [gold]Obscure Star Wars Character[/gold] to your [gold]draw pile[/gold].",
+        "At the start of each combat, add a random [gold]Obscure Star Wars Character[/gold] to your [gold]draw pile[/gold].");
 
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)

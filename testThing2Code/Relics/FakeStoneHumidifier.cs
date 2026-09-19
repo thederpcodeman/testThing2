@@ -22,8 +22,8 @@ public class FakeStoneHumidifier() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Stone Humidifier",
-        "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.",
-        "Whoever you defeat an Elite, other Elites in the act will begin with 3 additional Strength.");
+        "Whenever you defeat an [gold]Elite[/gold], the other [gold]Elites[/gold] in the act will gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] at the start of combat.",
+        "Whenever you defeat an [gold]Elite[/gold], the other [gold]Elites[/gold] in the act will gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] at the start of combat.");
 
     protected override IEnumerable<DynamicVar> CanonicalVars
     {

@@ -21,8 +21,8 @@ public class EyeOfStars() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Eye of Stars",
-        "At the start of each turn, lose 1 energy and all players gain 1 star.",
-        "At the start of each turn, lose 1 energy and all players gain 1 star.");
+        "#[red]Lose[/red] [E] at the start of each turn, but [green]all[/green] players gain [blue]1 star[/blue].",
+        "#[red]Lose[/red] [E] at the start of each turn, but [green]all[/green] players gain [blue]1 star[/blue].");
 
     public override bool IsAllowed(IRunState runState)
     {

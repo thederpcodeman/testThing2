@@ -25,8 +25,8 @@ public class BottomlessBox() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Bottomless Box",
-        "Transform your entire deck.",
-        "Transform your entire deck.");
+        "[gold]Transform[/gold] your entire [gold]Deck[/gold].",
+        "[gold]Transform[/gold] your entire [gold]Deck[/gold].");
 
     
     public override async Task AfterObtained()

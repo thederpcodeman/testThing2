@@ -21,8 +21,8 @@ public class Diffusion() : testThing2Relic
     
     public override List<(string, string)> Localization => new PowerLoc(
         "Diffusion",
-        "At the start of each turn, gain 1 energy and all players lose 1 focus.",
-        "At the start of each turn, gain 1 energy and all players lose 1 focus.");
+        "#Gain [E] at the start of each turn, but [red]all[/red] players start with [blue]1[/blue] [red]Biased Cognition[/red].",
+        "#Gain [E] at the start of each turn, but [red]all[/red] players start with [blue]1[/blue] [red]Biased Cognition[/red].");
 
     public override bool IsAllowed(IRunState runState)
     {
