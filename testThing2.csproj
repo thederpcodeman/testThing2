@@ -59,10 +59,6 @@
         <None Include="testThing2/**"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="testThing2\images\powers\big\"/>
-    </ItemGroup>
-
     <Target Name="CheckDependencyPaths">
         <Error
                 Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'"

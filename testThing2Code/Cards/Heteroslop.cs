@@ -13,12 +13,17 @@ using testThing2.testThing2Code.Cards;
 
 namespace testThing2.testThing2Code.Cards;
 
-[Pool(typeof(ColorlessCardPool))]
+[Pool(typeof(CurseCardPool))]
 public class Heteroslop() : testThing2Card(-1,
     CardType.Curse, CardRarity.Curse,
     TargetType.None)
 {
+    public override bool CanBeGeneratedInCombat
+    {
+        get => false;
+    }
     
+    public override bool CanBeGeneratedByModifiers => false;
     protected override bool ShouldGlowRedInternal => this.ShouldPreventCardPlay;
 
     private bool ShouldPreventCardPlay => this.CardsPlayedThisTurn >= 3;
