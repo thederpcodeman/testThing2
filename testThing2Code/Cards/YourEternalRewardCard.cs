@@ -32,6 +32,14 @@ public class YourEternalRewardCard() : testThing2Card(1,
             ]);
         }
     }
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords
+    {
+        get
+        {
+            return (IEnumerable<CardKeyword>) new List<CardKeyword>([CardKeyword.Innate, CardKeyword.Retain, CardKeyword.Eternal]);
+        }
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
