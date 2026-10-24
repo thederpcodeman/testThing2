@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnesjylh5j5b1"
-path="res://.godot/imported/tion_medon.png-c12327cf6e0298582aa4c5fda06fb97a.ctex"
+path="res://.godot/imported/tion_medon.png-d873529a5d31723bdd381524b33648bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/tion_medon.png"
-dest_files=["res://.godot/imported/tion_medon.png-c12327cf6e0298582aa4c5fda06fb97a.ctex"]
+source_file="res://testThing2/images/card_portraits/tion_medon.png"
+dest_files=["res://.godot/imported/tion_medon.png-d873529a5d31723bdd381524b33648bd.ctex"]
 
 [params]
 

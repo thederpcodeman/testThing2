@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh4hkqu3vgdlo"
-path="res://.godot/imported/dexter_jexter.png-ce412575b9caba459ed2dcfa85eccbb6.ctex"
+path="res://.godot/imported/dexter_jexter.png-7a42dfc4bb186c5d5caeb0f9f7bb9008.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/dexter_jexter.png"
-dest_files=["res://.godot/imported/dexter_jexter.png-ce412575b9caba459ed2dcfa85eccbb6.ctex"]
+source_file="res://testThing2/images/card_portraits/dexter_jexter.png"
+dest_files=["res://.godot/imported/dexter_jexter.png-7a42dfc4bb186c5d5caeb0f9f7bb9008.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dga8mbk504qk5"
-path="res://.godot/imported/gonk_droid.png-087c7c959fe9c46221a26ab9fc73c29c.ctex"
+path="res://.godot/imported/gonk_droid.png-a1e683bbfa846969fb176854e1975b18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/gonk_droid.png"
-dest_files=["res://.godot/imported/gonk_droid.png-087c7c959fe9c46221a26ab9fc73c29c.ctex"]
+source_file="res://testThing2/images/card_portraits/gonk_droid.png"
+dest_files=["res://.godot/imported/gonk_droid.png-a1e683bbfa846969fb176854e1975b18.ctex"]
 
 [params]
 

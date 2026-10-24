@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kuh03oke3osb"
-path="res://.godot/imported/heteroslop.png-07e69c5a2289b1b140c87fc756233879.ctex"
+path="res://.godot/imported/heteroslop.png-20f872457ea682c5f67d9241003c1b6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/heteroslop.png"
-dest_files=["res://.godot/imported/heteroslop.png-07e69c5a2289b1b140c87fc756233879.ctex"]
+source_file="res://testThing2/images/card_portraits/heteroslop.png"
+dest_files=["res://.godot/imported/heteroslop.png-20f872457ea682c5f67d9241003c1b6b.ctex"]
 
 [params]
 

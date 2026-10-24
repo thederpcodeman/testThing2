@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vcsbl2pfajnh"
-path="res://.godot/imported/ben_quadinaros.png-d8c38bc6a1224f92f874b1c60b240b36.ctex"
+path="res://.godot/imported/ben_quadinaros.png-073047f8956a887938e2e32d5e1514c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/ben_quadinaros.png"
-dest_files=["res://.godot/imported/ben_quadinaros.png-d8c38bc6a1224f92f874b1c60b240b36.ctex"]
+source_file="res://testThing2/images/card_portraits/ben_quadinaros.png"
+dest_files=["res://.godot/imported/ben_quadinaros.png-073047f8956a887938e2e32d5e1514c4.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnddw00f0gxw0"
-path="res://.godot/imported/glonk.png-b8872f877dab1c4657b91b59ad103361.ctex"
+path="res://.godot/imported/glonk.png-2f1c6bcf5d7504165450bb24976e79a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/glonk.png"
-dest_files=["res://.godot/imported/glonk.png-b8872f877dab1c4657b91b59ad103361.ctex"]
+source_file="res://testThing2/images/card_portraits/glonk.png"
+dest_files=["res://.godot/imported/glonk.png-2f1c6bcf5d7504165450bb24976e79a6.ctex"]
 
 [params]
 

@@ -23,12 +23,20 @@ public class Vyper() : testThing2Card( 2,
     {
         get
         {
-            return (IEnumerable<DynamicVar>) new List<DynamicVar>([new PowerVar<PoisonPower>(10)]);
+            return (IEnumerable<DynamicVar>) new List<DynamicVar>([new PowerVar<PoisonPower>(12)]);
         }
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get => new List<IHoverTip>([HoverTipFactory.FromPower<PoisonPower>()]);
+    }
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords
+    {
+        get
+        {
+            return (IEnumerable<CardKeyword>) new List<CardKeyword>([CardKeyword.Retain]);
+        }
     }
 
     protected override async Task OnPlay(
@@ -50,5 +58,5 @@ public class Vyper() : testThing2Card( 2,
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CreateCloneForPlayer(creature.Player), PileType.Discard, Owner), 2.2f);
     }
 
-    protected override void OnUpgrade() => this.DynamicVars.Poison.UpgradeValueBy(5M);
+    protected override void OnUpgrade() => this.DynamicVars.Poison.UpgradeValueBy(3M);
 }

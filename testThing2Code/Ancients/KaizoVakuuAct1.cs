@@ -1,9 +1,14 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Events;
-using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Runs;
 using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Ancients;
@@ -58,8 +63,6 @@ public class KaizoVakuuAct1 : CustomAncientModel
         pool.Add(RelicOption<Circlet>()); // From Events
         pool.Add(RelicOption<TeaOfDiscourtesy>()); // From Events
         pool.Add(RelicOption<FragrantMushroom>()); // From Events
-        
-
 
         return pool;
     }
@@ -82,4 +85,19 @@ public class KaizoVakuuAct1 : CustomAncientModel
 
     public override string? CustomRunHistoryIconOutlinePath =>
         "testThing2/images/ui/run_history/testthingy2-vakuu_plus_one_outline.png";
+    
+    protected override async Task BeforeEventStarted(bool isPreFinished)
+    {
+        if (isPreFinished)
+            return;
+        Owner.Creature.SetCurrentHpInternal(0M);
+        Decimal amount = (Decimal) (Owner.Creature.MaxHp - Owner.Creature.CurrentHp);
+        if (RunManager.Instance.HasAscension(AscensionLevel.WearyTraveler))
+            amount *= 0.8M;
+        await CreatureCmd.Heal(Owner.Creature, amount, false);
+        if (NRun.Instance != null)
+            TaskHelper.RunSafely(NRun.Instance.GlobalUi.TopBar.Hp.LerpAtNeow());
+    }
 }
+
+    

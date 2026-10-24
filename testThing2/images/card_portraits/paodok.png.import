@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cam4n61n3ln2n"
-path="res://.godot/imported/paodok.png-d1eb7efe5458b758ed2c5e641020ee18.ctex"
+path="res://.godot/imported/paodok.png-6cdbc04151d03f620a76e1a65c6bab6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testThing2/images/card_portraits/big/paodok.png"
-dest_files=["res://.godot/imported/paodok.png-d1eb7efe5458b758ed2c5e641020ee18.ctex"]
+source_file="res://testThing2/images/card_portraits/paodok.png"
+dest_files=["res://.godot/imported/paodok.png-6cdbc04151d03f620a76e1a65c6bab6b.ctex"]
 
 [params]
 
