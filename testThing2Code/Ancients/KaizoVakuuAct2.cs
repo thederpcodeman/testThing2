@@ -50,7 +50,8 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<OcdRelic>());              // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<OmegaStamp>());            // From Kaizo Vakuu
-        pool.Add(RelicOption<WardOfProtection>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<CardedHeart>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<WardOfProtection>());      // From Kaizo Vakuu
         pool.Add(RelicOption<FlyingCarpetStrangler>()); // From Kaizo Vakuu
         pool.Add(RelicOption<ShatterRelic>());          // From Kaizo Vakuu
         pool.Add(RelicOption<BingBong>());              // From Events
@@ -144,6 +145,7 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<OcdRelic>());              // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<OmegaStamp>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<CardedHeart>());            // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>());            // From Kaizo Vakuu
         pool.Add(RelicOption<FlyingCarpetStrangler>()); // From Kaizo Vakuu
         pool.Add(RelicOption<ShatterRelic>());          // From Kaizo Vakuu
