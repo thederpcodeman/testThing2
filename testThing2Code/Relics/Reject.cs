@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using testThing2.testThing2Code.Relics;
 
@@ -20,23 +21,36 @@ public class Reject() : testThing2Relic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
-    
-    public override bool HasUponPickupEffect => true;
+
+    private bool _wasUsed = false;
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Reject",
         "[red]YOU CANNOT REFUSE!![/red]",
         "Those who reject this privilege are penalized with [red]DEATH[/red] Do you still defy!?");
     
+    [SavedProperty]
+    public bool WasUsed
+    {
+        get => this._wasUsed;
+        set
+        {
+            this.AssertMutable();
+            this._wasUsed = value;
+            if (!this.IsUsedUp)
+                return;
+            this.Status = RelicStatus.Disabled;
+        }
+    }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (Status != RelicStatus.Disabled)
+        if (!_wasUsed)
         {
             Flash();
             var damage = new DamageVar(Owner.Creature.MaxHp + 999, ValueProp.Unpowered);
             await CreatureCmd.Damage((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), Owner.Creature, damage, Owner.Creature);
-            this.Status = RelicStatus.Disabled;
+            _wasUsed = true;
         }
         
     }

@@ -41,7 +41,7 @@ public class WardOfProtection() : testThing2Relic
         for (int i = 0; i < Owner.Deck.Cards.Count; ++i)
         {
             CardModel card = Owner.Deck.Cards[i];
-            card.AddKeyword(CardKeyword.Eternal);
+            CardCmd.ApplyKeyword(card, CardKeyword.Eternal);
         }
         await CreatureCmd.GainMaxHp(Owner.Creature, Math.Min(Owner.Deck.Cards.Count, 40));
     }

@@ -38,7 +38,6 @@ public class KaizoVakuuAct2 : CustomAncientModel {
     {
         List<EventOption> pool = new List<EventOption>();
         pool.Add(RelicOption<WhisperingEarring>());     // From Vakuu
-        pool.Add(RelicOption<ToastyMittens>());         // From Tezcatara
         pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<CallingBell>());           // From Darv

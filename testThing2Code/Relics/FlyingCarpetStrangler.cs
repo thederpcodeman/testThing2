@@ -29,6 +29,8 @@ public class FlyingCarpetStrangler() : testThing2Relic
 
     public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
     {
+        if (player != this.Owner)
+            return;
         foreach (var card in cards)
         {
             int rand = Owner.RunState.Rng.Niche.NextInt(0, 15);
