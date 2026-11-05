@@ -32,7 +32,6 @@ public class KaizoVakuuAct1 : CustomAncientModel
             AncientOption<LavaRock>(), // From Neow
             AncientOption<NeowsSacrifice>(), // From Neow
             AncientOption<PrecariousShears>(), // From Neow
-            AncientOption<SilverCrucible>(), // From Neow
             AncientOption<EmberTea>(),      // From Events
         ], [
             AncientOption<NeowsBones>(), // From Neow
@@ -57,7 +56,6 @@ public class KaizoVakuuAct1 : CustomAncientModel
         pool.Add(RelicOption<LavaRock>());
         pool.Add(RelicOption<NeowsSacrifice>());
         pool.Add(RelicOption<PrecariousShears>());
-        pool.Add(RelicOption<SilverCrucible>());
         pool.Add(RelicOption<EmberTea>());
         pool.Add(RelicOption<NeowsBones>());
         pool.Add(RelicOption<Circlet>()); // From Events
