@@ -51,7 +51,14 @@ public class UncountablyInfiniteBlades() : testThing2Relic
     {
         if (!participants.Contains<Creature>(Owner.Creature) || Owner.PlayerCombatState == null)
         {
-            return;
+            foreach (var creature in participants)
+            {
+                if (creature.IsPlayer)
+                {
+                    await CardPileCmd.AddToCombatAndPreview<Shiv>(creature, PileType.Draw, 1, Owner,
+                        CardPilePosition.Random);
+                }
+            }
         }
 
 

@@ -2,13 +2,16 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using testThing2.testThing2Code.Powers;
 using testThing2.testThing2Code.Relics;
@@ -73,5 +76,16 @@ public class VillainyRelicDefect() : testThing2Relic
     public override Decimal ModifyHandDraw(Player player, Decimal count)
     {
         return player != this.Owner ? count : count + (Decimal) this.DynamicVars.Cards.IntValue;
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        for (int i = 0; i < Owner.RunState.Players.Count; i++)
+        {
+            if (Owner.RunState.Players[i].Character is Defect)
+            {
+                await CardPileCmd.AddToCombatAndPreview<Dazed>(Owner.RunState.Players[i].Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+            }
+        }
     }
 }

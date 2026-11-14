@@ -22,7 +22,6 @@ public class KaizoVakuuAct1 : CustomAncientModel
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         [
-            AncientOption<OcdRelic>(), // From Kaizo Vakuu
             AncientOption<WardOfProtection>(), // From Kaizo Vakuu
             AncientOption<ShatterRelic>(), // From Kaizo Vakuu
             AncientOption<BigMushroom>(), // From Events
@@ -46,7 +45,6 @@ public class KaizoVakuuAct1 : CustomAncientModel
     {
         List<EventOption> pool = new List<EventOption>();
         
-        pool.Add(RelicOption<OcdRelic>()); // From Kaizo Vakuu
         pool.Add(RelicOption<WardOfProtection>()); // From Kaizo Vakuu
         pool.Add(RelicOption<ShatterRelic>()); // From Kaizo Vakuu
         pool.Add(RelicOption<BigMushroom>()); // From Events

@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -75,5 +76,16 @@ public class VillainyRelicIronclad() : testThing2Relic
     public override Decimal ModifyHandDraw(Player player, Decimal count)
     {
         return player != this.Owner ? count : count + (Decimal) this.DynamicVars.Cards.IntValue;
+    }
+    
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        for (int i = 0; i < Owner.RunState.Players.Count; i++)
+        {
+            if (Owner.RunState.Players[i].Character is Ironclad)
+            {
+                await CardPileCmd.AddToCombatAndPreview<Dazed>(Owner.RunState.Players[i].Creature, PileType.Draw, 1, Owner, CardPilePosition.Random);
+            }
+        }
     }
 }

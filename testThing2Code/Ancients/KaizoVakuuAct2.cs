@@ -46,7 +46,6 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<ToyBox>());                // From Tezcatara
         pool.Add(RelicOption<BiiigHug>());              // From Tezcatara
         pool.Add(RelicOption<CallingBell>());           // From Darv
-        pool.Add(RelicOption<BiigHug>());               // From Kaizo Vakuu
         pool.Add(RelicOption<OcdRelic>());              // From Kaizo Vakuu
         pool.Add(RelicOption<FakeStoneHumidifier>());   // From Kaizo Vakuu
         pool.Add(RelicOption<OmegaStamp>());            // From Kaizo Vakuu
