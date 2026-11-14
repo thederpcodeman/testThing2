@@ -24,7 +24,7 @@ public class YourEternalRewardRelic() : testThing2Relic
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
     
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         return runState.Players.Count > 1;
     }

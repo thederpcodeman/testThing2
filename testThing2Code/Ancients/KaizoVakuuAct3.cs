@@ -140,12 +140,6 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<PaelsTooth>());            // From Pael
         pool.Add(RelicOption<GlupShitto>());            // From Kaizo Vakuu
         pool.Add(RelicOption<VoidVial>());              // From Kaizo Vakuu
-        pool.Add(RelicOption<CursedBlade>());           // From Kaizo Vakuu
-        pool.Add(RelicOption<UncountablyInfiniteBlades>());     // From Kaizo Vakuu
-        pool.Add(RelicOption<EyeOfStars>());            // From Kaizo Vakuu
-        pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
-        pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
-        pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
         return pool;
@@ -161,6 +155,44 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
         return pool;
         
+    }
+    protected List<EventOption> OptionalPool()
+    {
+        List<EventOption> pool = new List<EventOption>();
+        List<EventOption> finalPool = new List<EventOption>();
+        
+        pool.Add(RelicOption<CursedBlade>());           // From Kaizo Vakuu
+        pool.Add(RelicOption<UncountablyInfiniteBlades>());     // From Kaizo Vakuu
+        pool.Add(RelicOption<EyeOfStars>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
+        pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
+        pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
+        
+        foreach (var option in pool)
+        {
+            if (option.Relic != null && Owner != null && option.Relic.IsAllowed(Owner.RunState))
+            {
+                finalPool.Add(option);
+            }
+        }
+        
+        List<EventOption> villainyOptions = this.VillainyPool().ToList<EventOption>();
+        List<EventOption> validVillainyOptions = new List<EventOption>();
+        
+        foreach (var option in villainyOptions)
+        {
+            if (option.Relic == null || Owner == null || option.Relic.IsAllowed(Owner.RunState))
+            {
+                validVillainyOptions.Add(option);
+            }
+        }
+        
+        if (validVillainyOptions.Count > 0)
+        {
+            validVillainyOptions.UnstableShuffle(Rng);
+            finalPool.Add(validVillainyOptions[0]);
+        }
+        return finalPool;
     }
 
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";

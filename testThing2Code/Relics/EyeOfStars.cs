@@ -24,7 +24,7 @@ public class EyeOfStars() : testThing2Relic
         "#[red]Lose[/red] [E] at the start of each turn, but [green]all[/green] players gain [blue]1 star[/blue].",
         "#[red]Lose[/red] [E] at the start of each turn, but [green]all[/green] players gain [blue]1 star[/blue].");
 
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)

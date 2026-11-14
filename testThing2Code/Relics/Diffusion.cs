@@ -24,7 +24,7 @@ public class Diffusion() : testThing2Relic
         "#Gain [E] at the start of each turn, but [red]all[/red] players start with [blue]1[/blue] [red]Biased Cognition[/red].",
         "#Gain [E] at the start of each turn, but [red]all[/red] players start with [blue]1[/blue] [red]Biased Cognition[/red].");
 
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)

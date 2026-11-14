@@ -27,7 +27,7 @@ public class CursedBlade() : testThing2Relic
         "At the start of your turn, [gold]Exhaust[/gold] a [purple]random[/purple] card of a [purple]random[/purple] player's [gold]Draw Pile[/gold] and gain [blue]1[/blue] [gold]Strength[/gold].",
         "At the start of your turn, [gold]Exhaust[/gold] a [purple]random[/purple] card of a [purple]random[/purple] player's [gold]Draw Pile[/gold] and gain [blue]1[/blue] [gold]Strength[/gold].");
 
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)

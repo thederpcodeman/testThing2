@@ -31,7 +31,7 @@ public class UncountablyInfiniteBlades() : testThing2Relic
         "#Gain [E] and add a [gold]shiv[/gold] to each player's [gold]Draw Pile[/gold] at the start of each turn.",
         "#Gain [E] and add a [gold]shiv[/gold] to each player's [gold]Draw Pile[/gold] at the start of each turn.");
 
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)

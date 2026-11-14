@@ -26,7 +26,7 @@ public class VillainyRelicRegent() : testThing2Relic
         "#At the start of each turn, Gain [E] and draw [blue]1[/blue] additional card.\n Whenever you play a card, add a [purple]dazed[/purple] to [orange]The Regent[/orange]'s [gold]Draw Pile[/gold].",
         "#At the start of each turn, Gain [E] and draw [blue]1[/blue] additional card.\n Whenever you play a card, add a [purple]dazed[/purple] to [orange]The Regent[/orange]'s [gold]Draw Pile[/gold].");
 
-    public override bool IsAllowed(IRunState runState)
+    public bool IsAllowed(IRunState runState)
     {
         if (runState.Players.Count <= 1)
         {
