@@ -80,8 +80,6 @@ public class FlyingCarpetStrangler() : testThing2Relic
             {
                 CardCmd.ApplyKeyword(card.Card, CardKeyword.Unplayable);
             }
-            
-            
         }
     }
 }

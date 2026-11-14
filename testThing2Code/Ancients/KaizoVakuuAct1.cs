@@ -68,6 +68,15 @@ public class KaizoVakuuAct1 : CustomAncientModel
         return act.Index == 0;
     }
 
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        if (act.Index == 0 && ConfigurationThingy.forceKaizoVakuu)
+        {
+            return true;
+        }
+        return base.ShouldForceSpawn(act, rngChosenAncient);
+    }
+
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
 
     public override string? CustomMapIconPath =>

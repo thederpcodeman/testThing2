@@ -48,6 +48,7 @@ public class OmegaStamp() : testThing2Relic
     {
         return player != this.Owner ? count : count - (Decimal) this.DynamicVars.Cards.IntValue;
     }
+    
     public override async Task AfterObtained()
     {
         await CardPileCmd.AddCurseToDeck<Regret>(Owner);

@@ -88,6 +88,15 @@ public class KaizoVakuuAct2 : CustomAncientModel {
     {
         return act.Index == 1;
     }
+    
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        if (act.Index == 1 && ConfigurationThingy.forceKaizoVakuu)
+        {
+            return true;
+        }
+        return base.ShouldForceSpawn(act, rngChosenAncient);
+    }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
