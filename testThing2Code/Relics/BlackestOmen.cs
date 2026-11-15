@@ -26,7 +26,7 @@ public class BlackestOmen() : testThing2Relic
         "Start each combat with [blue]6[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple]. \nOther players start with [blue]2[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple].",
         "Start each combat with [blue]6[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple]. \nOther players start with [blue]2[/blue] [gold]Countdown[/gold] and [blue]1[/blue] [purple]Neurosurge[/purple].");
 
-    public bool IsAllowed(IRunState runState)
+    public new bool IsValidForRun(IRunState runState)
     {
         bool necro = false;
         foreach (var player in runState.Players)

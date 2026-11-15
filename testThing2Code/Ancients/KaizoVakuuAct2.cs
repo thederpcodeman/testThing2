@@ -75,6 +75,7 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<VillainyRelicRegent>());   // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicNecrobinder>()); // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicFool>());   // From Kaizo Vakuu
         pool.Add(RelicOption<NeowsBones>());            // From Neow
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
@@ -161,6 +162,7 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<VillainyRelicRegent>());   // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicNecrobinder>()); // From Kaizo Vakuu
         pool.Add(RelicOption<VillainyRelicDefect>());   // From Kaizo Vakuu
+        pool.Add(RelicOption<VillainyRelicFool>());   // From Kaizo Vakuu
         return pool;
         
     }
@@ -182,14 +184,14 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         
         foreach (var option in pool)
         {
-            if (option.Relic != null && Owner != null && option.Relic.IsAllowed(Owner.RunState))
+            if (option.Relic != null && Owner != null && ((testThing2Relic)option.Relic).IsValidForRun(Owner.RunState))
             {
                 finalPool.Add(option);
             }
         }
         foreach (var option in villainyOptions)
         {
-            if (option.Relic == null || Owner == null || option.Relic.IsAllowed(Owner.RunState))
+            if (option.Relic == null || Owner == null || ((testThing2Relic)option.Relic).IsValidForRun(Owner.RunState))
             {
                 validVillainyOptions.Add(option);
             }

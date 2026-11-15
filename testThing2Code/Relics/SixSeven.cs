@@ -12,8 +12,11 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Afflictions;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using testThing2.testThing2Code.Cards;
@@ -45,52 +48,46 @@ public class SixSeven() : testThing2Relic
         CardCmd.Enchant<SixSevenCost>(card, 1);
 
     }
-    
-    public override Decimal ModifyDamageAdditive(
-        Creature? target,
-        Decimal amount,
-        ValueProp props,
+
+    public override async Task AfterDamageGiven(
+        PlayerChoiceContext choiceContext,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        DamageResult result,
+        ValueProp props,
+        Creature target,
+        CardModel? cardSource)
     {
-        if (dealer == Owner.Creature)
+        if (dealer != Owner.Creature || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
+            return;
+        if (Owner.PlayerRng.Transformations.NextInt(0, 67) == 0)
         {
-            if (Owner.PlayerRng.Transformations.NextInt(0, 67) == 0)
-            {
-                Flash();
-                return 67;
-            }
+            Flash();
+            await PowerCmd.Apply<DoomPower>(choiceContext, target, (Decimal)67, dealer, (CardModel)null);
         }
-
-        return 0;
     }
 
-    public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
+    public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
     {
-        if (target == Owner.Creature)
+        if (creature == Owner.Creature)
         {
             if (Owner.PlayerRng.Transformations.NextInt(0, 67) == 0)
             {
                 Flash();
-                return 67;
+                await CreatureCmd.GainBlock(Owner.Creature, new BlockVar(67, ValueProp.Unpowered), null, false);
             }
         }
-
-        return 0;
     }
 
-    public override decimal ModifyGoldGained(Player player, decimal amount)
+    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        if (player == Owner)
+        if (player != this.Owner || room == null || !room.RoomType.IsCombatRoom() || room.RoomType == RoomType.Boss && player.RunState.CurrentActIndex >= player.RunState.Acts.Count - 1)
+            return false;
+        if (player.RunState.TotalFloor % 7 == 0)
         {
-            if (Owner.PlayerRng.Transformations.NextInt(0, 67) == 0)
-            {
-                Flash();
-                return 67;
-            }
+            Flash();
+            rewards.Add((Reward) new GoldReward(67, player));
+            return true;
         }
-
-        return 0;
+        return false;
     }
 }
