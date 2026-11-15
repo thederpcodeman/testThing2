@@ -20,15 +20,6 @@ public class CardedHeart() : testThing2Relic
     public override RelicRarity Rarity =>
         RelicRarity.Ancient;
     
-    public bool IsAllowed(IRunState runState)
-    {
-        return runState.Players.Count > 1;
-    }
-    
-    protected override IEnumerable<IHoverTip> ExtraHoverTips
-    {
-        get => HoverTipFactory.FromCardWithCardHoverTips<YourEternalRewardCard>();
-    }
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Card Heart",
