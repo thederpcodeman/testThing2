@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using System.Collections;
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,6 +11,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using testThing2.testThing2Code.Extensions;
 using testThing2.testThing2Code.Powers;
 using testThing2.testThing2Code.Relics;
 
@@ -25,20 +27,30 @@ public class FunnyHat() : testThing2Relic
 
     public override List<(string, string)> Localization => new PowerLoc(
         "Funny Hat",
-        "Each turn, play the [yellow]cheapest[/yellow] card in [yellow]someone[/yellow]'s hand.",
-        "Each turn, play the [yellow]cheapest[/yellow] card in [yellow]someone[/yellow]'s hand.");
+        "Each turn, a card in someones draw pile is afflicted with [yellow]Fun![/yellow].",
+        "Each turn, a card in someones draw pile is afflicted with [yellow]fun[/yellow].");
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        bool succedded = false;
-        while (!succedded)
+        if (!participants.Contains<Creature>(Owner.Creature))
         {
-            int r = Owner.RunState.Rng.Niche.NextInt(0, participants.Count);
-            if (participants[r].IsPlayer)
+            return;
+        }
+
+        var cards = new List<CardModel>();
+        foreach (var creature in participants)
+        {
+            if (creature.IsPlayer)
             {
-                succedded = true;
-                await PowerCmd.Apply<ChaosPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), participants[r], 1, Owner.Creature, null);
+                foreach (var card in PileType.Draw.GetPile(creature.Player).Cards)
+                {
+                    cards.Add(card);
+                }
             }
         }
+
+        await CardCmd.Afflict<AfflictedWithSilly>(cards[Owner.RunState.Rng.Niche.NextInt(0, cards.Count)], 1);
+
     }
+    
 }
