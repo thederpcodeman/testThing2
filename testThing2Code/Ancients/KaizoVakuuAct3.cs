@@ -89,6 +89,11 @@ public class KaizoVakuuAct3 : CustomAncientModel {
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
+        if (Owner.GetRelic<TheBlackBook>() != null)
+        {
+            return BlackAndWhitePool();
+        }
+        
         List<EventOption> offerings = new List<EventOption>();
         List<EventOption> finalOptions = new List<EventOption>();
         List<EventOption> mainOptions = this.MainPool().ToList<EventOption>();
@@ -205,6 +210,47 @@ public class KaizoVakuuAct3 : CustomAncientModel {
             finalPool.Add(validVillainyOptions[0]);
         }
         return finalPool;
+    }
+
+    protected IReadOnlyList<EventOption> BlackAndWhitePool()
+    {
+        List<EventOption> offerings = new List<EventOption>();
+        if (Owner.GetRelic<InvokedPokey>() != null)
+        {
+            offerings.Add(RelicOption<Pokotho>()); //TODO REPLACE Pokotho
+        }
+        if (Owner.GetRelic<InvokedBlinky>() != null)
+        {
+            offerings.Add(RelicOption<Bliklotep>()); //TODO REPLACE Bliklotep
+        }
+        if (Owner.GetRelic<InvokedTinky>() != null)
+        {
+            offerings.Add(RelicOption<TnoyKaraxis>()); //TODO REPLACE T'noy Karaxis
+        }
+        if (Owner.GetRelic<InvokedNibbly>() != null)
+        {
+            offerings.Add(RelicOption<Nibblenephim>()); //TODO REPLACE Nibblenephim
+        }
+        if (Owner.GetRelic<InvokedPokey>() != null)
+        {
+            offerings.Add(RelicOption<WaggogYwrath>()); //TODO REPLACE Waggog Y'wrath
+        }
+
+        if (offerings.Count == 0)
+        {
+            offerings.Add(RelicOption<BlackestOmen>()); //TODO REPLACE Webby
+            offerings.Add(RelicOption<BlackestOmen>()); //TODO REPLACE Webby
+            offerings.Add(RelicOption<BlackestOmen>()); //TODO REPLACE Webby
+        } else if (offerings.Count == 1)
+        {
+            offerings.Add(offerings[0]); //TODO REPLACE Webby
+            offerings.Add(offerings[0]); //TODO REPLACE Webby
+        } else if (offerings.Count == 2)
+        {
+            offerings.Add(RelicOption<Reject>());
+        }
+        
+        return offerings;
     }
 
     public override string? CustomScenePath => "scenes/events/background_scenes/testthingy-vakuuplusone.tscn";
