@@ -30,7 +30,7 @@ public class CardedHeart() : testThing2Relic
 
     public override async Task AfterObtained()
     {
-        int max = 42;
+        int max = 44;
         if (Owner.RunState.Players.Count > 1)
         {
             max++;
@@ -142,95 +142,95 @@ public class CardedHeart() : testThing2Relic
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Quadcast>(Owner), PileType.Deck)]), 2f); 
-        }else if (choice == 41)
+        }else if (choice == 24)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<DivineShot>(Owner), PileType.Deck)]), 2f); 
         }
-        else if (choice == 42)
+        else if (choice == 25)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<LostLute>(Owner), PileType.Deck)]), 2f); 
         }
         
         // non-character vanilla ancient cards
-        else if (choice == 24)
+        else if (choice == 26)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Apotheosis>(Owner), PileType.Deck)]), 2f); 
-        }else if (choice == 25)
-        {
-            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Apparition>(Owner), PileType.Deck)]), 2f); 
-        }else if (choice == 26)
-        {
-            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<BrightestFlame>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 27)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Maul>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Apparition>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 28)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<NeowsFury>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<BrightestFlame>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 29)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Relax>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Maul>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 30)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Whistle>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<NeowsFury>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 31)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Relax>(Owner), PileType.Deck)]), 2f); 
+        }else if (choice == 32)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Whistle>(Owner), PileType.Deck)]), 2f); 
+        }else if (choice == 33)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Wish>(Owner), PileType.Deck)]), 2f); 
         }
         
         // other cards from vanilla ancients
-        else if (choice == 32)
+        else if (choice == 34)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Greed>(Owner), PileType.Deck)]), 2f); 
-        }else if (choice == 33)
-        {
-            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Dowsing>(Owner), PileType.Deck)]), 2f); 
-        }else if (choice == 34)
-        {
-            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Injury>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 35)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Guilty>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Dowsing>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 36)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Luminesce>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Injury>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 37)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Soot>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Guilty>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 38)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Dazed>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Luminesce>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 39)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Enthralled>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Soot>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 40)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
-                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Folly>(Owner), PileType.Deck)]), 2f); 
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Dazed>(Owner), PileType.Deck)]), 2f); 
         }else if (choice == 41)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Enthralled>(Owner), PileType.Deck)]), 2f); 
+        }else if (choice == 42)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Folly>(Owner), PileType.Deck)]), 2f); 
+        }else if (choice == 43)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<CurseOfTheBell>(Owner), PileType.Deck)]), 2f); 
         }
-        else if (choice == 42)
+        else if (choice == 44)
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<YourEternalRewardCard>(Owner), PileType.Deck)]), 2f); 
