@@ -80,6 +80,7 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
+        pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
         
         
         return pool;
@@ -178,6 +179,7 @@ public class KaizoVakuuAct2 : CustomAncientModel {
         pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
         pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
+        pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
         List<EventOption> mainOptions = this.MainPool().ToList<EventOption>();
         List<EventOption> villainyOptions = this.VillainyPool().ToList<EventOption>();
         List<EventOption> validVillainyOptions = new List<EventOption>();

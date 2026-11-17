@@ -30,6 +30,6 @@ public class AfflictedWithSilly : AfflictionModel
     }
     
     
-    public override bool HasExtraCardText => true;
+    public override bool HasExtraCardText => !_wasUsed;
     
 }

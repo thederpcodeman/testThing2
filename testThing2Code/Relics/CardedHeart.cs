@@ -142,6 +142,15 @@ public class CardedHeart() : testThing2Relic
         {
             CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
                 new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<Quadcast>(Owner), PileType.Deck)]), 2f); 
+        }else if (choice == 41)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<DivineShot>(Owner), PileType.Deck)]), 2f); 
+        }
+        else if (choice == 42)
+        {
+            CardCmd.PreviewCardPileAdd((IReadOnlyList<CardPileAddResult>)
+                new List<CardPileAddResult>([await CardPileCmd.Add((CardModel) Owner.RunState.CreateCard<LostLute>(Owner), PileType.Deck)]), 2f); 
         }
         
         // non-character vanilla ancient cards

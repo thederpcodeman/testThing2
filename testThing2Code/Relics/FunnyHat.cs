@@ -9,8 +9,10 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Runs;
 using testThing2.testThing2Code.Extensions;
 using testThing2.testThing2Code.Powers;
 using testThing2.testThing2Code.Relics;
@@ -29,6 +31,17 @@ public class FunnyHat() : testThing2Relic
         "Funny Hat",
         "Each turn, a card in someones draw pile is afflicted with [yellow]Fun![/yellow].",
         "Each turn, a card in someones draw pile is afflicted with [yellow]fun[/yellow].");
+    
+    public new bool IsValidForRun(IRunState runState)
+    {
+        bool necro = false;
+        foreach (var player in runState.Players)
+        {
+            necro = necro || player.Character is Fool;
+        }
+
+        return necro;
+    }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
