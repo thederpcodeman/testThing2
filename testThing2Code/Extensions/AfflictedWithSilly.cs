@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace testThing2.testThing2Code.Extensions;
 
-
 public class AfflictedWithSilly : AfflictionModel
 {
     

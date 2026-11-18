@@ -8,8 +8,9 @@ using testThing2.testThing2Code.Relics;
 
 namespace testThing2.testThing2Code.Relics;
 
-[Pool(typeof(EventRelicPool))]
 
+
+[Pool(typeof(EventRelicPool))]
 public class InvokedTinky() : testThing2Relic
 {
     public override RelicRarity Rarity =>

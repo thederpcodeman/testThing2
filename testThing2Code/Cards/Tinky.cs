@@ -11,6 +11,7 @@ using testThing2.testThing2Code.Cards;
 
 namespace testThing2.testThing2Code.Cards;
 
+
 [Pool(typeof(ColorlessCardPool))]
 public class Tinky() : testThing2Card(0,
     CardType.Skill, CardRarity.Ancient,

@@ -68,7 +68,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
         pool.Add(RelicOption<SixSeven>());              // From Kaizo Vakuu
         pool.Add(RelicOption<Fanfiction>());            // From Kaizo Vakuu
-        pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
+        //pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
         
         return pool;
     }
@@ -183,7 +183,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         pool.Add(RelicOption<BlackestOmen>());          // From Kaizo Vakuu
         pool.Add(RelicOption<Diffusion>());             // From Kaizo Vakuu
         pool.Add(RelicOption<YourEternalRewardRelic>());// From Kaizo Vakuu
-        pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
+        //pool.Add(RelicOption<FunnyHat>());// From Kaizo Vakuu
         
         foreach (var option in pool)
         {
@@ -215,6 +215,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
     protected IReadOnlyList<EventOption> BlackAndWhitePool()
     {
         List<EventOption> offerings = new List<EventOption>();
+        /**
         if (Owner.GetRelic<InvokedPokey>() != null)
         {
             offerings.Add(RelicOption<Pokotho>()); //TODO REPLACE Pokotho
@@ -249,7 +250,7 @@ public class KaizoVakuuAct3 : CustomAncientModel {
         {
             offerings.Add(RelicOption<Reject>());
         }
-        
+        */
         return offerings;
     }
 
